@@ -544,6 +544,24 @@ body.mobile-nav-active #mobile-nav-toggle {
   display: none;
   border: 2px solid #2a315e;
 }
+#bk {
+  font-weight: 600;
+  color: #b20000;
+}
+#inputs {
+  font-size: 1.75rem;
+}
+#firstname_bk,
+#name_bk {
+  border: 2px solid #2a315e;
+}
+#canvas {
+  border: 2px solid #2a315e;
+}
+.leaflet-popup-content {
+  color: #2a315e;
+  font-size: 1rem;
+}
 /* #clear_btn {
   display: none;
 } */

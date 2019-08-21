@@ -1,18 +1,12 @@
 class Booking {
-  constructor(firstname) {
-    this.firstname = firstname;
-    this.name = name;
-    $("#bookNow").on("click", () => {
-      $("#booking").show();
-      console.log("test");
-    });
+  constructor(formID, mapObject) {
+    $("#booking").on("submit", this.book.bind(this));
+    this.mapObject = mapObject;
+    // this.canvas = canvasObject;
   }
-  showForm() {
-    let x = document.getElementById("booking");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+  book(e) {
+    e.preventDefault();
+    let firstname = $("#fistname").val();
+    let name = $("#name").val();
   }
 }
