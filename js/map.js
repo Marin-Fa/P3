@@ -68,10 +68,25 @@ class Map {
       station.available_bikes +
       "<br/><b>Available bike stands:</b> " +
       station.available_bike_stands +
-      "<br/><button>Book now</button> ";
+      "<br/><button id=bookNow>Book now</button> ";
     this.marker = L.marker([station.position.lat, station.position.lng], {
       icon: this.myIcon
     }).bindPopup(this.popup);
     this.markerClusters.addLayer(this.marker);
   }
+  stationStatus(station) {
+    if (station.status === "CLOSED" || station.available_bikes === 0) {
+      $("#bookNow").hide();
+    } else {
+      $("#bookNow").show();
+    }
+  }
+  // showForm() {
+  //   let x = document.getElementById("booking");
+  //   if (x.style.display === "none") {
+  //     x.style.display = "block";
+  //   } else {
+  //     x.style.display = "none";
+  //   }
+  // }
 }

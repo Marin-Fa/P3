@@ -144,28 +144,26 @@
 
         <div id="booking" class="col-md-3 pull-right">
           <h2>Booking</h2>
-          <div id="canvas_area">
-            <form id="booking_form">
-              <div id="inputs">
-                <label for="firstname">Your firstname</label><br />
-                <input
-                  type="text"
-                  id="firstname"
-                  name="firstname"
-                  maxlength="50"
-                /><br />
-                <label for="surname">Your name</label><br />
-                <input type="text" id="surname" name="surname" maxlength="50" />
-                <span id="inputMsg"></span>
-              </div>
-              <div id="sign">
-                <h3>Your signature</h3>
-                <canvas id="canvas"></canvas>
-                <button id="confirm_btn">Confirm</button>
-                <!-- <span id="clear_btn">Clear</span> -->
-              </div>
-            </form>
-          </div>
+          <form id="booking_form">
+            <div id="inputs">
+              <label for="firstname">Your firstname</label><br />
+              <input
+                type="text"
+                id="firstname"
+                name="firstname"
+                maxlength="50"
+              /><br />
+              <label for="surname">Your name</label><br />
+              <input type="text" id="name" name="name" maxlength="50" />
+              <span id="error_message"></span>
+            </div>
+            <div id="signature">
+              <h3>Your signature</h3>
+              <canvas id="canvas"></canvas>
+              <button id="confirm_btn">Confirm</button>
+              <!-- <span id="clear_btn">Clear</span> -->
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -275,6 +273,7 @@
     <script src="js/main.js"></script>
     <script src="js/carousel.js"></script>
     <script src="js/map.js"></script>
+    <script src="js/booking.js"></script>
     <script src="js/contactform.js"></script>
     <script src="js/ajax.js"></script>
   </body>
