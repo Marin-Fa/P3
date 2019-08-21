@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ToGo</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Libraries CSS Files -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Main Stylesheet File -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css"
+    />
+    <link
+      crossorigin=""
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      rel="stylesheet"
+    />
+    <script
+      crossorigin=""
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    ></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.0/dist/leaflet.markercluster.js"></script>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="container">
+        <div id="logo" class="pull-left">
+          <a href="#intro" class="scrollto"
+            ><img src="img/logo.png" alt="" title=""
+          /></a>
+        </div>
+
+        <nav id="nav-menu-container">
+          <ul class="nav-menu">
+            <li class="menu-active"><a href="#intro">Home</a></li>
+            <li><a href="#map">Map</a></li>
+            <li class="buy-tickets"><a href="#contact">Booking</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- First Container -->
+    <div class="container-fluid center-block text-center">
+      <div class="container-slider">
+        <div id="slides">
+          <div class="slide showing">
+            <section id="txt1" class="intro">
+              <div class="intro-container wow fadeIn">
+                <h1 class="mb-0">Enjoy<br /><span>Lyon</span></h1>
+                <p class="mb-0">
+                  ToGo is always with you, available on a 24/7 basis
+                </p>
+                <a href="#about" class="about-btn scrollto">Book now</a>
+              </div>
+            </section>
+            <img
+              class="img-fluid"
+              id="img1"
+              src="img/lyon4.jpg"
+              alt="Image de Lyon"
+            />
+          </div>
+
+          <div class="slide">
+            <section id="txt2" class="intro">
+              <div class="intro-container wow fadeIn">
+                <h1 class="mb-0">Find your<br /><span>Station</span></h1>
+                <p class="mb-0">
+                  and ToGo's available bikes, click on book now
+                </p>
+                <a href="#about" class="about-btn scrollto">Book now</a>
+              </div>
+            </section>
+            <img
+              class="img-fluid"
+              id="img2"
+              src="img/lyon5.jpg"
+              alt="Image de Lyon"
+            />
+          </div>
+          <div class="slide">
+            <section id="txt3" class="intro">
+              <div class="intro-container wow fadeIn">
+                <h1 class="mb-0">Fill in<br /><span>the form</span></h1>
+                <p class="mb-0">
+                  That's it ! Retrieve your bike within 20 minutes !
+                </p>
+                <a href="#about" class="about-btn scrollto">Book now</a>
+              </div>
+            </section>
+            <img
+              class="img-fluid"
+              id="img3"
+              src="img/lyon6.jpg"
+              alt="Image de Lyon"
+            />
+          </div>
+
+          <div class="controls col-md-12 text-center">
+            <button
+              id="pause"
+              id="singlebutton"
+              name="singlebutton"
+              class="btn btn-primary about-btn"
+            >
+              Pause
+            </button>
+            <div class="arrows">
+              <div id="previous" class="arrow_left"></div>
+              <div id="next" class="arrow_right"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div id="section_map" class="container-fluid center-block text-center">
+      <div class="center">
+        <div id="map" class="col-md-9"></div>
+
+        <div id="booking" class="col-md-3 pull-right">
+          <h2>Booking</h2>
+          <div id="canvas_area">
+            <form id="booking_form">
+              <div id="inputs">
+                <label for="firstname">Your firstname</label><br />
+                <input
+                  type="text"
+                  id="firstname"
+                  name="firstname"
+                  maxlength="50"
+                /><br />
+                <label for="surname">Your name</label><br />
+                <input type="text" id="surname" name="surname" maxlength="50" />
+                <span id="inputMsg"></span>
+              </div>
+              <div id="sign">
+                <h3>Your signature</h3>
+                <canvas id="canvas"></canvas>
+                <button id="confirm_btn">Confirm</button>
+                <!-- <span id="clear_btn">Clear</span> -->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <section id="contact" class="section-bg wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact Us</h2>
+        </div>
+
+        <div class="row contact-info">
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Address</h3>
+              <address>1 Place Bellecour, 69001 LYON, FRANCE</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+155895548855">+33 4 74 64 52 33</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:info@example.com">info@togo.com</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form">
+          <div id="sendmessage">Your message has been sent. Thank you!</div>
+          <div id="errormessage"></div>
+          <form action="" method="post" role="form" class="contactForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="Your Name"
+                  data-rule="minlen:4"
+                  data-msg="Please enter at least 4 chars"
+                />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="email"
+                  placeholder="Your Email"
+                  data-rule="email"
+                  data-msg="Please enter a valid email"
+                />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="subject"
+                id="subject"
+                placeholder="Subject"
+                data-rule="minlen:4"
+                data-msg="Please enter at least 8 chars of subject"
+              />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control"
+                name="message"
+                rows="5"
+                data-rule="required"
+                data-msg="Please write something for us"
+                placeholder="Message"
+              ></textarea>
+              <div class="validation"></div>
+            </div>
+            <div class="text-center">
+              <button type="submit">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="js/leaflet-providers.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/contactform.js"></script>
+    <script src="js/ajax.js"></script>
+  </body>
+</html>
