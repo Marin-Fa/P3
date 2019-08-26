@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-// class Booking {
-//   constructor(formID, mapObject) {
-//     $("#booking").on("submit", this.book.bind(this));
-//     this.mapObject = mapObject;
-//     // this.canvas = canvasObject;
-//   }
-//   book(e) {
-//     e.preventDefault();
-//     let firstname = $("#fistname").val();
-//     let name = $("#name").val();
-//   }
-//   populateStorage() {
-//     if (localStorage.getItem("name") && localStorage.getItem("firstname")) {
-//       this.localSurname = localStorage.getItem("name");
-//       this.localFirstname = localStorage.getItem("firstname");
-//       $("#name").val(this.localSurname);
-//       $("#firstname").val(this.localFirstname);
-//     }
-//   }
-// }
-
 let labelElm = document.querySelector("label");
 let inputElm = document.querySelector("input");
 let canvasElm = document.querySelector("canvas");
@@ -34,19 +12,6 @@ if (!localStorage.getItem("firstname_bk") && "name_bk") {
   populateStorage();
 } else {
   setStyles();
-=======
-class Booking {
-  constructor(formID, mapObject) {
-    $("#booking").on("submit", this.book.bind(this));
-    this.mapObject = mapObject;
-    // this.canvas = canvasObject;
-  }
-  book(e) {
-    e.preventDefault();
-    let firstname = $("#fistname").val();
-    let name = $("#name").val();
-  }
->>>>>>> master
 }
 
 function populateStorage() {
@@ -74,3 +39,24 @@ function setStyles() {
 
 firstnameForm.onchange = populateStorage;
 nameForm.onchange = populateStorage;
+
+// class Booking {
+//   constructor(formID, mapObject) {
+//     $("#booking").on("submit", this.book.bind(this));
+//     this.mapObject = mapObject;
+//     // this.canvas = canvasObject;
+//   }
+//   book(e) {
+//     e.preventDefault();
+//     let firstname = $("#fistname").val();
+//     let name = $("#name").val();
+//   }
+//   populateStorage() {
+//     if (localStorage.getItem("name") && localStorage.getItem("firstname")) {
+//       this.localSurname = localStorage.getItem("name");
+//       this.localFirstname = localStorage.getItem("firstname");
+//       $("#name").val(this.localSurname);
+//       $("#firstname").val(this.localFirstname);
+//     }
+//   }
+// }
