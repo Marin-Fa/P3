@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // class Booking {
 //   constructor(formID, mapObject) {
 //     $("#booking").on("submit", this.book.bind(this));
@@ -33,6 +34,19 @@ if (!localStorage.getItem("firstname_bk") && "name_bk") {
   populateStorage();
 } else {
   setStyles();
+=======
+class Booking {
+  constructor(formID, mapObject) {
+    $("#booking").on("submit", this.book.bind(this));
+    this.mapObject = mapObject;
+    // this.canvas = canvasObject;
+  }
+  book(e) {
+    e.preventDefault();
+    let firstname = $("#fistname").val();
+    let name = $("#name").val();
+  }
+>>>>>>> master
 }
 
 function populateStorage() {
