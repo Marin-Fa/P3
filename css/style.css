@@ -543,6 +543,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 #booking {
   display: none;
   border: 2px solid #2a315e;
+  font-size: 1.75rem;
+  font-weight: bolder;
+}
+#signature {
+  font-weight: bolder;
 }
 #bk {
   font-weight: 600;
@@ -550,13 +555,21 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 #booking_status {
   display: none;
+  font-size: 1.75rem;
 }
-#firstname_bkd,
+/* #firstname_bkd,
 #name_bkd,
 #station_bkd,
-#adress_bkd,
+#address_bkd,
 #timer {
   font-size: 1.75rem;
+} */
+#station_bkd {
+  color: #2a315e;
+}
+#station,
+#address {
+  color: #b20000;
 }
 #inputs {
   font-size: 1.75rem;

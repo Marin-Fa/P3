@@ -31,6 +31,8 @@ class Map {
         // console.log("This is", thiz);
         stations.forEach(function(station) {
           thiz.addMarker(station);
+          // let someString = station.name;
+          // newString = someString.replace(/[0-9]/g, "");
           // console.log(station.name);
         });
 
@@ -70,7 +72,20 @@ class Map {
       icon: this.myIcon
     }).bindPopup(this.popup);
     this.markerClusters.addLayer(this.marker);
+
     this.marker.addEventListener("click", () => {
+      $.get(
+        "https://api.jcdecaux.com/vls/v1/stations/" +
+          station.number +
+          "?contract=Lyon&apiKey=1692d146857047d2d74e535ea581e535313e858f",
+        function(station) {
+          this.selectedStation = station; // héritage qui marche pas
+          sessionStorage.setItem("stationName", station.name);
+          sessionStorage.setItem("stationAddress", station.address);
+          // sessionStorage.setItem("station", station.address);
+          console.log(this.selectedStation.address);
+        }
+      );
       $("#bookNow").on("click", () => {
         $("#booking").show(500);
       });

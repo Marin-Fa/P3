@@ -11,17 +11,13 @@ class Booking {
     if (
       localStorage.getItem("name_bk") &&
       localStorage.getItem("firstname_bk")
-      // localStorage.getItem("station_bkd")
     ) {
       this.name = localStorage.getItem("name_bk");
       this.firstname = localStorage.getItem("firstname_bk");
-      // this.station = localStorage.getItem("station_bkd");
       $("#name_bk").val(this.name);
       $("#firstname_bk").val(this.firstname);
-      // $("station_bkd").val(this.station);
       console.log(this.firstname);
       console.log(this.name);
-      console.log(this.station);
     }
   }
   // check inputs (regex ?)
@@ -36,11 +32,14 @@ class Booking {
     localStorage.setItem("name_bk", $("#name_bk").val());
     $("#firstname_bkd").text($("#firstname_bk").val());
     $("#name_bkd").text($("#name_bk").val());
-
-    sessionStorage.setItem("station", this.mapObject.station);
-    $("#station_bkd").text(sessionStorage.getItem("station"));
-    console.log(this.mapObject);
-    // undefiiiiiiiiined :'(
+    // sessionStorage.setItem("station", this.mapObject.selectedStation.name); // héritage qui marche pas
+    // sessionStorage.setItem("station", this.mapObject.station);
+    let stationNameRegex = sessionStorage
+      .getItem("stationName")
+      .split(/^\d+ - /, 2)[1];
+    $("#station").text(stationNameRegex);
+    sessionStorage.getItem("stationAddress");
+    $("#address").text(sessionStorage.getItem("stationAddress"));
   }
   bookingInterface() {
     $("#confirm_btn").on("click", () => {
@@ -53,5 +52,11 @@ class Booking {
       $("#booking_form").show();
       $(".leaflet-popup").show();
     });
+  }
+  timer() {
+    const minutes = 20;
+    const minInMs = minutes * 60 * 1000;
+
+    let chrono = setInterval(() => {});
   }
 }

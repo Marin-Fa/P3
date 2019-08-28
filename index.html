@@ -151,24 +151,24 @@
                 type="text"
                 id="firstname_bk"
                 name="firstname"
-                maxlength="50"
+                maxlength="20"
               /><br />
               <label for="surname">Your name</label><br />
-              <input type="text" id="name_bk" name="name" maxlength="50" />
+              <input type="text" id="name_bk" name="name" maxlength="20" />
             </div>
             <div id="signature">
-              <h3>Your signature</h3>
+              <b>Your signature</b>
               <canvas id="canvas" width="150" height="150"></canvas>
               <button id="confirm_btn">Confirm</button>
             </div>
           </form>
           <div id="booking_status">
-            <h3><b>Get ready for a ride !</b></h3>
+            <b>Get ready for a ride !</b>
             <b id="firstname_bkd"></b><br />
             <b id="name_bkd"></b><br />
-            <b id="station_bkd"></b><br />
-            <b id="adress_bkd">Adress: </b><br />
-            <b id="timer">Time remaining :</b><br />
+            <b id="station_bkd">Station: <span id="station"></span></b><br />
+            <b id="address_bkd">Address: <span id="address"></span></b><br />
+            <b id="timer">Time remaining :<span id="clock"></span></b><br />
             <button id="clear_btn">Clear</button>
           </div>
         </div>
@@ -277,12 +277,12 @@
 
     <!-- Template Main Javascript File -->
     <script src="js/leaflet-providers.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/carousel.js"></script>
     <script src="js/map.js"></script>
     <script src="js/booking.js"></script>
     <!-- <script src="js/canvas.js"></script> -->
     <script src="js/contactform.js"></script>
     <script src="js/ajax.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
