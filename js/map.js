@@ -28,10 +28,12 @@ class Map {
     $.get(
       "https://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=1692d146857047d2d74e535ea581e535313e858f",
       function(stations) {
-        console.log("This is", thiz);
+        // console.log("This is", thiz);
         stations.forEach(function(station) {
           thiz.addMarker(station);
+          // console.log(station.name);
         });
+
         thiz.map.addLayer(thiz.markerClusters);
       }
     );
@@ -68,22 +70,6 @@ class Map {
       icon: this.myIcon
     }).bindPopup(this.popup);
     this.markerClusters.addLayer(this.marker);
-
-    // let statusColor;
-    // if (station.status === "OPEN" && station.available_bikes > 0) {
-    //   statusColor.style.color = "#2a315e";
-    // } else {
-    //   statusColor.style.color = "#b20000";
-    // }
-
-    // this.marker.addEventListener("click", () => {
-    //   if (station.status === "OPEN" && station.available_bikes > 0) {
-    //     $("#bookNow").show();
-    //   } else {
-    //     $("#bookNow").hide();
-    //   }
-    // });
-
     this.marker.addEventListener("click", () => {
       $("#bookNow").on("click", () => {
         $("#booking").show(500);

@@ -548,6 +548,16 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-weight: 600;
   color: #b20000;
 }
+#booking_status {
+  display: none;
+}
+#firstname_bkd,
+#name_bkd,
+#station_bkd,
+#adress_bkd,
+#timer {
+  font-size: 1.75rem;
+}
 #inputs {
   font-size: 1.75rem;
 }
@@ -556,15 +566,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   border: 2px solid #2a315e;
 }
 #canvas {
+  display: none;
   border: 2px solid #2a315e;
 }
 .leaflet-popup-content {
   color: #2a315e;
   font-size: 1rem;
 }
-/* #clear_btn {
-  display: none;
-} */
 
 /* Contact */
 #contact {

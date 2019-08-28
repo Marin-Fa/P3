@@ -1,62 +1,57 @@
-let labelElm = document.querySelector("label");
-let inputElm = document.querySelector("input");
-let canvasElm = document.querySelector("canvas");
-let confirmElm = document.querySelector("button");
+class Booking {
+  constructor(idBooking, mapObject) {
+    $("#booking").on("submit", this.book.bind(this));
+    this.mapObject = mapObject;
+    // this.canvas = canvasObject;
 
-let firstnameForm = document.getElementById("firstname_bk");
-let nameForm = document.getElementById("name_bk");
-let canvasForm = document.getElementById("canvas");
-let confirmForm = document.getElementById("confirm_btn");
+    this.bookingInterface();
+    this.webStorage();
+  }
+  webStorage() {
+    if (
+      localStorage.getItem("name_bk") &&
+      localStorage.getItem("firstname_bk")
+      // localStorage.getItem("station_bkd")
+    ) {
+      this.name = localStorage.getItem("name_bk");
+      this.firstname = localStorage.getItem("firstname_bk");
+      // this.station = localStorage.getItem("station_bkd");
+      $("#name_bk").val(this.name);
+      $("#firstname_bk").val(this.firstname);
+      // $("station_bkd").val(this.station);
+      console.log(this.firstname);
+      console.log(this.name);
+      console.log(this.station);
+    }
+  }
+  // check inputs (regex ?)
 
-if (!localStorage.getItem("firstname_bk") && "name_bk") {
-  populateStorage();
-} else {
-  setStyles();
+  // check canvas (empty true or false)
+
+  // timer minutes = 20
+  book(e) {
+    e.preventDefault();
+
+    localStorage.setItem("firstname_bk", $("#firstname_bk").val());
+    localStorage.setItem("name_bk", $("#name_bk").val());
+    $("#firstname_bkd").text($("#firstname_bk").val());
+    $("#name_bkd").text($("#name_bk").val());
+
+    sessionStorage.setItem("station", this.mapObject.station);
+    $("#station_bkd").text(sessionStorage.getItem("station"));
+    console.log(this.mapObject);
+    // undefiiiiiiiiined :'(
+  }
+  bookingInterface() {
+    $("#confirm_btn").on("click", () => {
+      $("#booking_status").show();
+      $("#booking_form").hide();
+      $(".leaflet-popup").hide();
+    });
+    $("#clear_btn").on("click", () => {
+      $("#booking_status").hide();
+      $("#booking_form").show();
+      $(".leaflet-popup").show();
+    });
+  }
 }
-
-function populateStorage() {
-  localStorage.setItem(
-    "firstname_bk",
-    document.getElementById("firstname_bk").value
-  );
-  localStorage.setItem("name_bk", document.getElementById("name_bk").value);
-  // localStorage.setItem('canvas', document.getElementById('canvas').value);
-  // localStorage.setItem('confirm_btn', document.getElementById('confirm_btn').value);
-
-  setStyles();
-}
-
-function setStyles() {
-  let currentFirstname = localStorage.getItem("firstname_bk");
-  let currentName = localStorage.getItem("name_bk");
-
-  document.getElementById("firstname_bk").value = currentFirstname;
-  document.getElementById("name_bk").value = currentName;
-
-  firstnameForm.textContent = currentFirstname;
-  nameForm.textContent = currentName;
-}
-
-firstnameForm.onchange = populateStorage;
-nameForm.onchange = populateStorage;
-
-// class Booking {
-//   constructor(formID, mapObject) {
-//     $("#booking").on("submit", this.book.bind(this));
-//     this.mapObject = mapObject;
-//     // this.canvas = canvasObject;
-//   }
-//   book(e) {
-//     e.preventDefault();
-//     let firstname = $("#fistname").val();
-//     let name = $("#name").val();
-//   }
-//   populateStorage() {
-//     if (localStorage.getItem("name") && localStorage.getItem("firstname")) {
-//       this.localSurname = localStorage.getItem("name");
-//       this.localFirstname = localStorage.getItem("firstname");
-//       $("#name").val(this.localSurname);
-//       $("#firstname").val(this.localFirstname);
-//     }
-//   }
-// }
