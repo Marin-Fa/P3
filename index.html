@@ -159,6 +159,7 @@
             <div id="signature">
               <b>Your signature</b><br />
               <canvas id="canvas" width="150" height="150"></canvas><br />
+              <button id="clear_btn_canvas">Clear</button><br />
               <button id="confirm_btn">Confirm</button>
             </div>
           </form>
@@ -168,7 +169,11 @@
             <b id="name_bkd"></b><br />
             <b id="station_bkd">Station: <span id="station"></span></b><br />
             <b id="address_bkd">Address: <span id="address"></span></b><br />
-            <b id="timer">Time remaining :<span id="clock"></span></b><br />
+            <b id="timer"
+              >Time remaining :<br />
+              <progress value="0" max="10" id="progressBar"></progress><br />
+              <span id="clock"></span> </b
+            ><br />
             <button id="clear_btn">Clear</button>
           </div>
         </div>

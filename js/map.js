@@ -31,11 +31,7 @@ class Map {
         // console.log("This is", thiz);
         stations.forEach(function(station) {
           thiz.addMarker(station);
-          // let someString = station.name;
-          // newString = someString.replace(/[0-9]/g, "");
-          // console.log(station.name);
         });
-
         thiz.map.addLayer(thiz.markerClusters);
       }
     );
@@ -44,6 +40,7 @@ class Map {
     this.myUrl = jQuery('script[src$="js/map.js"]')
       .attr("src")
       .replace("map.js", "");
+
     let iconColor;
     if (station.status === "OPEN" && station.available_bikes > 0) {
       iconColor = "img/marker_blue_24.png";
@@ -56,9 +53,13 @@ class Map {
       iconAnchor: [9, 21],
       popupAnchor: [0, -14]
     });
+
+    let str = station.name;
+    let stationNameRegex = str.split(/^\d+ - /, 2)[1];
+    // console.log(stationNameRegex);
     this.popup =
       "<b>Name:</b> " +
-      station.name +
+      stationNameRegex +
       "<br/><b>Address:</b> " +
       station.address +
       "<br/><b>Status:</b> " +
@@ -68,6 +69,7 @@ class Map {
       "<br/><b>Available bike stands:</b> " +
       station.available_bike_stands +
       "<br/><button id='bookNow'>Book now</button> ";
+
     this.marker = L.marker([station.position.lat, station.position.lng], {
       icon: this.myIcon
     }).bindPopup(this.popup);
@@ -82,12 +84,19 @@ class Map {
           this.selectedStation = station; // héritage qui marche pas
           sessionStorage.setItem("stationName", station.name);
           sessionStorage.setItem("stationAddress", station.address);
-          // sessionStorage.setItem("station", station.address);
           console.log(this.selectedStation.address);
         }
       );
-      $("#bookNow").on("click", () => {
-        $("#booking").show(500);
+      if (station.status === "OPEN" && station.available_bikes > 0) {
+        $("#bookNow").show();
+        $("#bookNow").on("click", () => {
+          $("#booking").show(500);
+        });
+      } else {
+        $("#bookNow").hide();
+      }
+      $(".leaflet-popup-close-button").on("click", () => {
+        $("#booking").hide();
       });
     });
   }

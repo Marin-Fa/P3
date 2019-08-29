@@ -579,9 +579,24 @@ body.mobile-nav-active #mobile-nav-toggle {
   /* display: none; */
   border: 2px solid #2a315e;
 }
+#clear_btn_canvas {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  background: white;
+  border: none;
+  color: #2a315e;
+}
+#clear_btn_canvas:hover {
+  color: #b20000;
+  background: white;
+}
 .leaflet-popup-content {
   color: #2a315e;
   font-size: 1rem;
+}
+#progressBar {
+  color: #b20000;
 }
 
 /* Contact */
@@ -707,6 +722,9 @@ button {
 button:hover {
   color: #2a315e;
   background: white;
+}
+button:focus {
+  outline: none !important;
 }
 
 #contact .form button[type="submit"]:hover {
