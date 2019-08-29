@@ -546,9 +546,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 1.75rem;
   font-weight: bolder;
 }
-#signature {
-  font-weight: bolder;
-}
 #bk {
   font-weight: 600;
   color: #b20000;
@@ -579,7 +576,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   border: 2px solid #2a315e;
 }
 #canvas {
-  display: none;
+  /* display: none; */
   border: 2px solid #2a315e;
 }
 .leaflet-popup-content {

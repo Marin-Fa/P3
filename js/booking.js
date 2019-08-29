@@ -1,6 +1,7 @@
 class Booking {
   constructor(idBooking, mapObject) {
     $("#booking").on("submit", this.book.bind(this));
+    this.booking = $(idBooking);
     this.mapObject = mapObject;
     // this.canvas = canvasObject;
 
@@ -55,7 +56,6 @@ class Booking {
   }
   timer() {
     const minutes = 20;
-    const minInMs = minutes * 60 * 1000;
 
     let chrono = setInterval(() => {});
   }
