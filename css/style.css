@@ -575,6 +575,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 #name_bk {
   border: 2px solid #2a315e;
 }
+#complete_inputs {
+  color: #b20000;
+}
 #canvas {
   /* display: none; */
   border: 2px solid #2a315e;

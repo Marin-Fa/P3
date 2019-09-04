@@ -20,8 +20,23 @@ class Booking {
       // console.log(this.name);
     }
   }
-  // check inputs (regex ?)
-  // check canvas (empty true or false)
+  checkWebStorage(elt) {
+    this.regex = /^[a-zA-Z]+$/;
+    this.input = $(elt).val();
+    // Correspondance entre un texte et une expression rationnelle
+    if (this.input.length === 0 || this.regex.test($(elt).val()) === false) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  checkCanvas() {
+    if (this.canvasObject.isEmpty === true) {
+      return false;
+    } else {
+      return true;
+    }
+  }
   timer() {
     let timeleft = 10;
     let downloadTimer = setInterval(function() {
@@ -38,24 +53,47 @@ class Booking {
   }
   book(e) {
     e.preventDefault();
-    localStorage.setItem("firstname_bk", $("#firstname_bk").val());
-    localStorage.setItem("name_bk", $("#name_bk").val());
-    $("#firstname_bkd").text($("#firstname_bk").val());
-    $("#name_bkd").text($("#name_bk").val());
+    if (
+      this.checkCanvas($("#canvas")) &&
+      this.checkWebStorage($("#firstname_bk")) &&
+      this.checkWebStorage($("#name_bk"))
+    ) {
+      localStorage.setItem("firstname_bk", $("#firstname_bk").val());
+      localStorage.setItem("name_bk", $("#name_bk").val());
+      $("#firstname_bkd").text($("#firstname_bk").val());
+      $("#name_bkd").text($("#name_bk").val());
+      let stationNameRegex = sessionStorage
+        .getItem("stationName")
+        .split(/^\d+ - /, 2)[1];
+      $("#station").text(stationNameRegex);
+      sessionStorage.getItem("stationAddress");
+      $("#address").text(sessionStorage.getItem("stationAddress"));
+      this.bookingInterface();
+      this.timer();
+    } else {
+      $("#complete_inputs").text("Please fill in the fields");
+      $("#confirm_btn").on("click", () => {
+        $("#booking_status").style.display = "none";
+      });
+    }
+    // localStorage.setItem("firstname_bk", $("#firstname_bk").val());
+    // localStorage.setItem("name_bk", $("#name_bk").val());
+    // $("#firstname_bkd").text($("#firstname_bk").val());
+    // $("#name_bkd").text($("#name_bk").val());
     // sessionStorage.setItem("station", this.mapObject.selectedStation.name); // héritage qui marche pas
-    let stationNameRegex = sessionStorage
-      .getItem("stationName")
-      .split(/^\d+ - /, 2)[1];
-    $("#station").text(stationNameRegex);
-    sessionStorage.getItem("stationAddress");
-    $("#address").text(sessionStorage.getItem("stationAddress"));
+    // let stationNameRegex = sessionStorage
+    //   .getItem("stationName")
+    //   .split(/^\d+ - /, 2)[1];
+    // $("#station").text(stationNameRegex);
+    // sessionStorage.getItem("stationAddress");
+    // $("#address").text(sessionStorage.getItem("stationAddress"));
   }
   bookingInterface() {
     $("#confirm_btn").on("click", () => {
       $("#booking_status").show();
       $("#booking_form").hide();
       $(".leaflet-popup").hide();
-      this.timer();
+      // this.timer();
     });
     $("#clear_btn").on("click", () => {
       $("#booking_status").hide();
