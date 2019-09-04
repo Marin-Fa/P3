@@ -536,9 +536,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   height: 500px; */
   border: 2px solid #2a315e;
 }
-#bookNow {
-  display: block;
-}
+/* #bookNow {
+  display: none;
+} */
 /* Booking */
 #booking {
   display: none;

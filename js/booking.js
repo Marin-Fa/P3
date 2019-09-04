@@ -4,8 +4,8 @@ class Booking {
     this.booking = $(idBooking);
     this.mapObject = mapObject;
     this.canvasObject = canvasObject;
-    this.bookingInterface();
     this.webStorage();
+    this.bookingInterface();
   }
   webStorage() {
     if (
@@ -51,6 +51,28 @@ class Booking {
       }
     }, 1000);
   }
+  bookingInterface() {
+    if (!this.canvasObject || !this.input) {
+      $("#confirm_btn").on("click", () => {
+        $("#complete_inputs").text("Please fill in the fields");
+        $("#booking_status").hide();
+        console.log("NOPE FILL IN THE FIIIIELDS");
+      });
+    } else {
+      $("#confirm_btn").on("click", () => {
+        $("#booking_status").show();
+        $("#booking_form").hide();
+        $(".leaflet-popup").hide();
+        this.timer();
+        console.log("OKAYYY BITCH");
+      });
+      $("#clear_btn").on("click", () => {
+        $("#booking_status").hide();
+        $("#booking_form").show();
+        $(".leaflet-popup").show();
+      });
+    }
+  }
   book(e) {
     e.preventDefault();
     if (
@@ -69,36 +91,6 @@ class Booking {
       sessionStorage.getItem("stationAddress");
       $("#address").text(sessionStorage.getItem("stationAddress"));
       this.bookingInterface();
-      this.timer();
-    } else {
-      $("#complete_inputs").text("Please fill in the fields");
-      $("#confirm_btn").on("click", () => {
-        $("#booking_status").style.display = "none";
-      });
     }
-    // localStorage.setItem("firstname_bk", $("#firstname_bk").val());
-    // localStorage.setItem("name_bk", $("#name_bk").val());
-    // $("#firstname_bkd").text($("#firstname_bk").val());
-    // $("#name_bkd").text($("#name_bk").val());
-    // sessionStorage.setItem("station", this.mapObject.selectedStation.name); // héritage qui marche pas
-    // let stationNameRegex = sessionStorage
-    //   .getItem("stationName")
-    //   .split(/^\d+ - /, 2)[1];
-    // $("#station").text(stationNameRegex);
-    // sessionStorage.getItem("stationAddress");
-    // $("#address").text(sessionStorage.getItem("stationAddress"));
-  }
-  bookingInterface() {
-    $("#confirm_btn").on("click", () => {
-      $("#booking_status").show();
-      $("#booking_form").hide();
-      $(".leaflet-popup").hide();
-      // this.timer();
-    });
-    $("#clear_btn").on("click", () => {
-      $("#booking_status").hide();
-      $("#booking_form").show();
-      $(".leaflet-popup").show();
-    });
   }
 }

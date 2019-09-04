@@ -87,13 +87,13 @@ class Map {
           console.log(this.selectedStation.address);
         }
       );
-      if (station.status === "OPEN" && station.available_bikes > 0) {
+      if (station.status === "CLOSED" || station.available_bikes === 0) {
+        $("#bookNow").hide();
+      } else {
         $("#bookNow").show();
         $("#bookNow").on("click", () => {
           $("#booking").show(500);
         });
-      } else {
-        $("#bookNow").hide();
       }
       $(".leaflet-popup-close-button").on("click", () => {
         $("#booking").hide();
