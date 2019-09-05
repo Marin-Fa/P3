@@ -68,7 +68,8 @@ class Map {
       station.available_bikes +
       "<br/><b>Available bike stands:</b> " +
       station.available_bike_stands +
-      "<br/><button id='bookNow'>Book now</button> ";
+      "<br/><br/><a id='bookNow' href='#booking'>Book now</a> ";
+    // <a href='#booking'</a></a>
 
     this.marker = L.marker([station.position.lat, station.position.lng], {
       icon: this.myIcon

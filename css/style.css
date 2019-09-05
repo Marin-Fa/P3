@@ -24,7 +24,7 @@ a:focus {
 
 p {
   padding: 0;
-  margin: 0 0 30px 0;
+  margin: 0 0 10px 0;
 }
 
 h1,
@@ -82,7 +82,7 @@ h6 {
   top: 0;
   right: 0;
   transition: all 0.5s;
-  z-index: 997;
+  z-index: 999;
   background-color: white;
 }
 
@@ -208,7 +208,7 @@ h6 {
   width: 100%;
 }
 
-.nav-menu li.buy-tickets a {
+.nav-menu li.show-map a {
   color: #fff;
   background: #b20000;
   padding: 7px 22px;
@@ -222,13 +222,13 @@ h6 {
   font-size: 18px;
 }
 
-.nav-menu li.buy-tickets a:hover {
+.nav-menu li.show-map a:hover {
   color: #2a315e;
   background: none;
 }
 
-.nav-menu li.buy-tickets:hover a:before,
-.nav-menu li.buy-tickets.menu-active a:before {
+.nav-menu li.show-map:hover a:before,
+.nav-menu li.show-map.menu-active a:before {
   visibility: hidden;
 }
 
@@ -380,6 +380,8 @@ body.mobile-nav-active #mobile-nav-toggle {
   background-color: #fff;
   width: 100%;
   height: auto;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 #slides {
   margin: 0px;
@@ -521,47 +523,61 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Map */
 #section_map {
   padding-top: 20px;
+  padding-left: 150px;
+  padding-right: 150px;
 }
 .center {
   position: relative;
   height: 600px;
 }
 #map {
-  /* padding-top: 22em; */
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
-  /* width: 70%;
-  height: 500px; */
   border: 2px solid #2a315e;
 }
-/* #bookNow {
-  display: none;
-} */
+.leaflet-bottom,
+.leaflet-top {
+  z-index: 900 !important;
+}
+#bookNow {
+  margin-top: 15px;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 600;
+  background: #b20000;
+  border-radius: 50px;
+  color: #fff;
+  border-color: transparent;
+  padding: 7px 22px;
+}
+.leaflet-control-container {
+  z-index: 200;
+}
 /* Booking */
 #booking {
   padding-top: 20px;
   display: none;
-  border: 2px solid #2a315e;
   font-size: 1.75rem;
   font-weight: bolder;
+  /* background-color: pink; */
 }
 #bk {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 2.5rem;
   color: #b20000;
+  text-transform: uppercase;
 }
 #booking_status {
   display: none;
   font-size: 1.75rem;
 }
-/* #firstname_bkd,
-#name_bkd,
-#station_bkd,
-#address_bkd,
-#timer {
-  font-size: 1.75rem;
-} */
+label,
+#signature {
+  text-transform: uppercase;
+  font-weight: 600;
+}
 #station_bkd {
   color: #2a315e;
 }
@@ -574,14 +590,13 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 #firstname_bk,
 #name_bk {
-  border: 2px solid #2a315e;
+  border: 1px solid #2a315e;
 }
 #complete_inputs {
   color: #b20000;
 }
 #canvas {
-  /* display: none; */
-  border: 2px solid #2a315e;
+  border: 1px solid #2a315e;
 }
 #clear_btn_canvas {
   font-size: 1.2rem;
@@ -758,6 +773,11 @@ button:focus {
   #slides {
     height: 584.5px;
   }
+  #section_map {
+    padding-top: 1em;
+    padding-left: 90px;
+    padding-right: 90px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -782,6 +802,11 @@ button:focus {
   .intro p {
     font-size: 22px;
   }
+  #section_map {
+    padding-top: 1em;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -796,6 +821,8 @@ button:focus {
   }
   #section_map {
     padding-top: 1em;
+    padding-left: 30px;
+    padding-right: 30px;
   }
   #contact {
     padding: 1em 0;
@@ -820,6 +847,8 @@ button:focus {
   }
   #section_map {
     padding-top: 1em;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 @media (max-width: 320px) {
@@ -841,5 +870,7 @@ button:focus {
   }
   #section_map {
     padding-top: 1em;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
