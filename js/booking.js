@@ -3,10 +3,11 @@ class Booking {
     $("#booking").on("submit", this.book.bind(this));
     this.booking = $(idBooking);
     this.canvasObject = canvasObject;
-    this.webStorage();
-    this.bookingInterface();
+    this.initWebStorage();
+    this.initBookingInterface();
   }
-  webStorage() {
+
+  initWebStorage() {
     if (
       localStorage.getItem("name_bk") &&
       localStorage.getItem("firstname_bk")
@@ -46,7 +47,7 @@ class Booking {
       }
     }, 1000);
   }
-  bookingInterface() {
+  initBookingInterface() {
     if (!this.canvasObject || !this.input) {
       $("#confirm_btn").on("click", () => {
         $("#complete_inputs").text("Please fill in the fields");

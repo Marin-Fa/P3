@@ -37,17 +37,13 @@ class Map {
     );
   }
   addMarker(station) {
-    this.myUrl = jQuery('script[src$="js/map.js"]')
-      .attr("src")
-      .replace("map.js", "");
-
     let iconColor;
     if (station.status === "OPEN" && station.available_bikes > 0) {
       iconColor = "img/marker_blue_24.png";
     } else {
       iconColor = "img/marker_red_24.png";
     }
-    this.myIcon = L.icon({
+    let icon = L.icon({
       iconUrl: iconColor,
       iconSize: [38, 50],
       iconAnchor: [9, 21],
@@ -57,7 +53,7 @@ class Map {
     let str = station.name;
     let stationNameRegex = str.split(/^\d+ - /, 2)[1];
     // console.log(stationNameRegex);
-    this.popup =
+    let popup =
       "<b>Name:</b> " +
       stationNameRegex +
       "<br/><b>Address:</b> " +
@@ -68,15 +64,19 @@ class Map {
       station.available_bikes +
       "<br/><b>Available bike stands:</b> " +
       station.available_bike_stands +
-      "<br/><br/><a id='bookNow' href='#booking'>Book now</a> ";
+      "<br/><br/><a class='bookNow' href='#booking'>Book now</a> ";
     // <a href='#booking'</a></a>
 
-    this.marker = L.marker([station.position.lat, station.position.lng], {
-      icon: this.myIcon
-    }).bindPopup(this.popup);
-    this.markerClusters.addLayer(this.marker);
+    let marker = L.marker([station.position.lat, station.position.lng], {
+      icon: icon
+    }).bindPopup(popup);
+    this.markerClusters.addLayer(marker);
 
-    this.marker.addEventListener("click", () => {
+    marker.addEventListener("popupopen", () => {
+      let bookNow = $(marker.getPopup()._contentNode).find(".bookNow")[0];
+
+      $(bookNow).hide();
+
       $.get(
         "https://api.jcdecaux.com/vls/v1/stations/" +
           station.number +
@@ -86,19 +86,20 @@ class Map {
           sessionStorage.setItem("stationName", station.name);
           sessionStorage.setItem("stationAddress", station.address);
           console.log(this.selectedStation.address);
+
+          if (station.status != "CLOSED" && station.available_bikes > 0) {
+            $(bookNow).show();
+
+            $(bookNow).on("click", () => {
+              $("#booking").show(500);
+            });
+          }
         }
       );
-      if (station.status === "CLOSED" || station.available_bikes === 0) {
-        $("#bookNow").hide();
-      } else {
-        $("#bookNow").show();
-        $("#bookNow").on("click", () => {
-          $("#booking").show(500);
-        });
-      }
-      $(".leaflet-popup-close-button").on("click", () => {
-        $("#booking").hide();
-      });
+    });
+
+    marker.addEventListener("popupclose", () => {
+      $("#booking").hide();
     });
   }
 }

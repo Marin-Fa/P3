@@ -541,14 +541,14 @@ body.mobile-nav-active #mobile-nav-toggle {
 .leaflet-top {
   z-index: 900 !important;
 }
-#bookNow {
+.bookNow {
   margin-top: 15px;
   font-family: "Raleway", sans-serif;
   letter-spacing: 1px;
   font-weight: 600;
   background: #b20000;
   border-radius: 50px;
-  color: #fff;
+  color: #fff !important;
   border-color: transparent;
   padding: 7px 22px;
 }

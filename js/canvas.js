@@ -13,6 +13,7 @@ class Canvas {
   }
   pointerEvents() {
     this.canvas.on("mousedown touchstart", e => {
+      // init signature
       this.ctx.beginPath();
       this.draw = true;
       e.preventDefault();
@@ -27,9 +28,11 @@ class Canvas {
       this.posX;
       this.posY;
       if (e.type === "mousemove") {
+        // Desktop pointer coordinates
         this.posX = e.pageX - this.canvas.offset().left;
         this.posY = e.pageY - this.canvas.offset().top;
       } else if (e.type === "touchmove") {
+        // Mobile touch coordinates
         this.posX = e.touches[0].pageX - this.canvas.offset().left;
         this.posY = e.touches[0].pageY - this.canvas.offset().top;
       }
