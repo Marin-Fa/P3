@@ -31,11 +31,7 @@ class Booking {
     }
   }
   checkCanvas() {
-    if (this.canvasObject.isEmpty === true) {
-      return false;
-    } else {
-      return true;
-    }
+    return !this.canvasObject.isEmpty;
   }
   timer() {
     let timeleft = 10;
