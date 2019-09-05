@@ -44,93 +44,97 @@
 
   <body>
     <!-- Header -->
-    <header id="header">
-      <div class="container">
-        <div id="logo" class="pull-left">
-          <a href="#intro" class="scrollto"
-            ><img src="img/logo.png" alt="" title=""
-          /></a>
-        </div>
+    <div class="row">
+      <header id="header" class="col-md-12">
+        <div class="container">
+          <div id="logo" class="pull-left">
+            <a href="#intro" class="scrollto"
+              ><img src="img/logo.png" alt="" title=""
+            /></a>
+          </div>
 
-        <nav id="nav-menu-container">
-          <ul class="nav-menu">
-            <li class="menu-active"><a href="#intro">Home</a></li>
-            <li><a href="#map">Map</a></li>
-            <li class="buy-tickets"><a href="#contact">Booking</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+          <nav id="nav-menu-container">
+            <ul class="nav-menu">
+              <li class="menu-active"><a href="#intro">Home</a></li>
+              <li><a href="#map">Map</a></li>
+              <li class="buy-tickets"><a href="#contact">Booking</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </div>
 
     <!-- First Container -->
-    <div class="container-fluid center-block text-center">
-      <div class="container-slider">
-        <div id="slides">
-          <div class="slide showing">
-            <section id="txt1" class="intro">
-              <div class="intro-container wow fadeIn">
-                <h1 class="mb-0">Enjoy<br /><span>Lyon</span></h1>
-                <p class="mb-0">
-                  ToGo is always with you, available on a 24/7 basis
-                </p>
-                <a href="#about" class="about-btn scrollto">Book now</a>
-              </div>
-            </section>
-            <img
-              class="img-fluid"
-              id="img1"
-              src="img/lyon4.jpg"
-              alt="Image de Lyon"
-            />
-          </div>
+    <div class="row">
+      <div class="container-fluid center-block text-center">
+        <div class="container-slider">
+          <div id="slides">
+            <div class="slide showing">
+              <section id="txt1" class="intro">
+                <div class="intro-container wow fadeIn">
+                  <h1 class="mb-0">Enjoy<br /><span>Lyon</span></h1>
+                  <p class="mb-0">
+                    ToGo is always with you, available on a 24/7 basis
+                  </p>
+                  <a href="#about" class="about-btn scrollto">Book now</a>
+                </div>
+              </section>
+              <img
+                class="img-fluid"
+                id="img1"
+                src="img/lyon4.jpg"
+                alt="Image de Lyon"
+              />
+            </div>
 
-          <div class="slide">
-            <section id="txt2" class="intro">
-              <div class="intro-container wow fadeIn">
-                <h1 class="mb-0">Find your<br /><span>Station</span></h1>
-                <p class="mb-0">
-                  and ToGo's available bikes, click on book now
-                </p>
-                <a href="#about" class="about-btn scrollto">Book now</a>
-              </div>
-            </section>
-            <img
-              class="img-fluid"
-              id="img2"
-              src="img/lyon5.jpg"
-              alt="Image de Lyon"
-            />
-          </div>
-          <div class="slide">
-            <section id="txt3" class="intro">
-              <div class="intro-container wow fadeIn">
-                <h1 class="mb-0">Fill in<br /><span>the form</span></h1>
-                <p class="mb-0">
-                  That's it ! Retrieve your bike within 20 minutes !
-                </p>
-                <a href="#about" class="about-btn scrollto">Book now</a>
-              </div>
-            </section>
-            <img
-              class="img-fluid"
-              id="img3"
-              src="img/lyon6.jpg"
-              alt="Image de Lyon"
-            />
-          </div>
+            <div class="slide">
+              <section id="txt2" class="intro">
+                <div class="intro-container wow fadeIn">
+                  <h1 class="mb-0">Find your<br /><span>Station</span></h1>
+                  <p class="mb-0">
+                    and ToGo's available bikes, click on book now
+                  </p>
+                  <a href="#about" class="about-btn scrollto">Book now</a>
+                </div>
+              </section>
+              <img
+                class="img-fluid"
+                id="img2"
+                src="img/lyon5.jpg"
+                alt="Image de Lyon"
+              />
+            </div>
+            <div class="slide">
+              <section id="txt3" class="intro">
+                <div class="intro-container wow fadeIn">
+                  <h1 class="mb-0">Fill in<br /><span>the form</span></h1>
+                  <p class="mb-0">
+                    That's it ! Retrieve your bike within 20 minutes !
+                  </p>
+                  <a href="#about" class="about-btn scrollto">Book now</a>
+                </div>
+              </section>
+              <img
+                class="img-fluid"
+                id="img3"
+                src="img/lyon6.jpg"
+                alt="Image de Lyon"
+              />
+            </div>
 
-          <div class="controls col-md-12 text-center">
-            <button
-              id="pause"
-              id="singlebutton"
-              name="singlebutton"
-              class="btn btn-primary about-btn"
-            >
-              Pause
-            </button>
-            <div class="arrows">
-              <div id="previous" class="arrow_left"></div>
-              <div id="next" class="arrow_right"></div>
+            <div class="controls col-md-12 text-center">
+              <button
+                id="pause"
+                id="singlebutton"
+                name="singlebutton"
+                class="btn btn-primary about-btn"
+              >
+                Pause
+              </button>
+              <div class="arrows">
+                <div id="previous" class="arrow_left"></div>
+                <div id="next" class="arrow_right"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -138,11 +142,18 @@
     </div>
 
     <!-- Map -->
-    <div id="section_map" class="container-fluid center-block text-center">
-      <div class="center">
-        <div id="map" class="col-md-9"></div>
+    <div class="row">
+      <div id="section_map" class="container-fluid center-block text-center">
+        <div class="center">
+          <div id="map" class="col-md-12"></div>
+        </div>
+      </div>
+    </div>
 
-        <div id="booking" class="col-md-3 pull-right">
+    <div class="row">
+      <div class="col-4"></div>
+      <div id="booking" class="col-md-4">
+        <div class="text-center">
           <h2 id="bk">Booking</h2>
           <form id="booking_form">
             <div id="inputs">
@@ -179,6 +190,7 @@
           </div>
         </div>
       </div>
+      <div class="col-4"></div>
     </div>
 
     <!-- Contact -->
