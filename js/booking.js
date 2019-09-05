@@ -1,8 +1,7 @@
 class Booking {
-  constructor(idBooking, mapObject, canvasObject) {
+  constructor(idBooking, canvasObject) {
     $("#booking").on("submit", this.book.bind(this));
     this.booking = $(idBooking);
-    this.mapObject = mapObject;
     this.canvasObject = canvasObject;
     this.webStorage();
     this.bookingInterface();
