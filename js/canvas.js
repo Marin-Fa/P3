@@ -8,22 +8,22 @@ class Canvas {
     this.isEmpty = true;
     this.ctx.lineWidth = 2;
     this.ctx.strokeStyle = "#b20000";
-    this.pointerEvents();
+    this.initPointerEvents();
     $("#clear_btn_canvas").on("click", this.clearPad.bind(this));
   }
-  pointerEvents() {
+  initPointerEvents() {
     this.canvas.on("mousedown touchstart", e => {
       // init signature
       this.ctx.beginPath();
       this.draw = true;
       e.preventDefault();
     });
-    this.canvas.on("mousemove touchmove", this.signaturePad.bind(this));
+    this.canvas.on("mousemove touchmove", this.signPad.bind(this));
     this.canvas.on("mouseup touchend", () => {
       this.draw = false;
     });
   }
-  signaturePad(e) {
+  signPad(e) {
     if (this.draw === true) {
       this.posX;
       this.posY;

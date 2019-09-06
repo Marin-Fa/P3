@@ -6,7 +6,6 @@ class Booking {
     this.initWebStorage();
     this.initBookingInterface();
   }
-
   initWebStorage() {
     if (
       localStorage.getItem("name_bk") &&
@@ -33,22 +32,32 @@ class Booking {
   checkCanvas() {
     return !this.canvasObject.isEmpty;
   }
-  timer() {
-    let timeleft = 10;
-    let downloadTimer = setInterval(function() {
-      document.getElementById("progressBar").value = 10 - timeleft;
-      document.getElementById("clock").innerHTML =
-        timeleft + " seconds remaining";
-      timeleft -= 1;
-      if (timeleft <= 0) {
-        clearInterval(downloadTimer);
+  initTimer() {
+    const min = 20 * 60 * 1000;
+
+    let chrono = setInterval(() => {
+      let time = Date.now() - Number(sessionStorage.getItem("timeNow"));
+      let timeRemain = min - time;
+      let minutesRemain = Math.floor(timeRemain / 1000 / 60);
+      let secondsRemain = Math.floor((timeRemain / 1000) % 60);
+      if (String(secondsRemain).length === 1) {
+        secondsRemain = "0" + secondsRemain;
+      }
+      if (time < min) {
+        $("#clock").text(minutesRemain + "min " + secondsRemain + "s");
+      } else {
+        clearInterval(chrono);
         document.getElementById("clock").innerHTML = "Finished";
-        document.getElementById("progressBar").value = 10;
+        sessionStorage.clear();
       }
     }, 1000);
   }
   initBookingInterface() {
-    if (!this.canvasObject || !this.input) {
+    if (
+      this.canvasObject.isEmpty ||
+      this.name === null ||
+      this.firstname === null
+    ) {
       $("#confirm_btn").on("click", () => {
         $("#complete_inputs").text("Please fill in the fields");
         $("#booking_status").hide();
@@ -59,7 +68,7 @@ class Booking {
         $("#booking_status").show();
         $("#booking_form").hide();
         $(".leaflet-popup").hide();
-        this.timer();
+        this.initTimer();
         console.log("OKAYYY BITCH");
       });
       $("#clear_btn").on("click", () => {
@@ -86,7 +95,8 @@ class Booking {
       $("#station").text(stationNameRegex);
       sessionStorage.getItem("stationAddress");
       $("#address").text(sessionStorage.getItem("stationAddress"));
-      this.bookingInterface();
+      sessionStorage.setItem("timeNow", Date.now());
+      this.initBookingInterface();
     }
   }
 }
