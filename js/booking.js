@@ -53,6 +53,7 @@ class Booking {
     }, 1000);
   }
   initBookingInterface() {
+    console.log("XXX -> initBookingInterface method <- XXX");
     if (
       this.canvasObject.isEmpty ||
       this.name === null ||
