@@ -470,7 +470,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #b20000;
   color: #fff;
 }
-#pause {
+#singlebutton {
   font-family: "Raleway", sans-serif;
   letter-spacing: 1px;
   font-weight: 600;
@@ -479,13 +479,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
   border-color: transparent;
 }
-#pause:hover {
+#singlebutton:hover {
   background: #b20000;
   color: #fff;
   border-color: transparent;
 }
-#pause:active,
-#pause:focus {
+#singlebutton:active,
+#singlebutton:focus {
   border-color: transparent;
 }
 .controls {

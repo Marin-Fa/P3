@@ -1,68 +1,63 @@
 class Slider {
-  constructor() {
-      this.slides = $("#slides .slide");
-      this.currentSlide = 0;
-      this.playing = false;        
-      this.control = "pause";
-      this.slideInterval = setInterval(5000);
-      for(let i = 0; i < this.slides.length; i ++) {
-        this.slides[i].style.position = 'absolute';
-      }
-      let controls = $(".controls");
-      this.nextSlide();
-      this.previousSlide();
-      this.initControls();
-      this.goToSlide();
+    constructor(interval, classSlider) {
+        this.timeInterval = interval;
+        this.slideInterval = setInterval(this.nextSlide.bind(this), this.timeInterval);
+        this.items = classSlider;
+        this.currentSlide = 0;
+        this.controls = 'play';
+        this.pauseBtn = document.getElementById('singlebutton');
+        
+        document.addEventListener("keydown", this.keybordControl.bind(this));
+        
+        document.getElementById("next").addEventListener("click", this.nextSlide.bind(this));
 
-  }
-  nextSlide() {
-      let next = $("#next");
-      $(next).on("click", () => {
-          this.currentSlide + 1;
-          console.log("next");
-      });
-      
-  }
-  previousSlide() {
-      let previous = $("#previous");
-      $(previous).on("click", () => {
-          this.currentSlide - 1;
-          console.log("previous");
-      });
-      
-  }
-  goToSlide(n) {
-      // $(this.slides[this.currentSlide]).hasClass('slide'); // hasClass marche pas
-      // document.getElementsByClassName("slide") = this.slides[this.currentSlide];
-      this.slides[this.currentSlide] = document.getElementsByClassName("slide");
-      this.currentSlide = (n + this.slides.length) % this.slides.length;
-      // $(this.slides[this.currentSlide]).hasClass('slide showing'); // hasClass marche pas
-      // document.getElementsByClassName("slide showing") = this.slides[this.currentSlide];
-      this.slides[this.currentSlide] = document.getElementsByClassName("slide showing");
-  }
-  initControls() {
-      if (this.control === "pause") {
-          this.pauseSlideshow();
-      } else {
-          this.playSlideshow();
-      }
-  }
-  pauseSlideshow() {
-      let pauseButton = $("#pause");
-      if (this.playing === false) {
-        this.playing = true;
-          $(pauseButton).innerHTML = "Play";
-          clearInterval(this.slideInterval);
-          console.log("pause");
-      }
-  }
-  playSlideshow() {
-      if (this.playing === true) {
-        this.playing = false;
-          $(pauseButton).innerHTML = "Pause";
-          this.slideInterval = setInterval(5000);
-          console.log("play");
-      }
-  }
+        document.getElementById("previous").addEventListener("click", this.prevSlide.bind(this));
+
+        document.getElementById('singlebutton').addEventListener('click', () => {
+            if (this.controls === 'play'){
+                this.pauseBtn.innerHTML = 'Play';
+            } else {
+                this.pauseBtn.innerHTML = 'Pause';
+            }
+            this.actualControl();
+        })
+
+    }
+    keybordControl(e) {
+        if (e.keyCode === 39) {
+            this.nextSlide();
+        } else if (e.keyCode === 37) {
+            this.prevSlide();
+        }
+    }
+    goToSlide(n) {
+        this.items[this.currentSlide].className = 'slide';
+        this.currentSlide = (n + this.items.length) % this.items.length;
+        this.items[this.currentSlide].className = 'slide showing';
+    }
+    nextSlide() {
+        this.goToSlide(this.currentSlide + 1);
+    }
+    prevSlide() {
+        this.goToSlide(this.currentSlide - 1);
+    }
+    playInterval() {
+        if (this.controls === 'pause') {
+            this.slideInterval = setInterval(this.nextSlide.bind(this), this.timeInterval);
+            this.controls = 'play';
+        }
+    }
+    pauseInterval() {
+        if (this.controls === 'play') {
+            clearInterval(this.slideInterval);
+            this.controls = 'pause';
+        }
+    }
+    actualControl() {
+        if (this.controls === "pause") {
+            this.playInterval();
+        } else {
+            this.pauseInterval();
+        }
+    }
 }
-const newSlider = new Slider();
