@@ -4,7 +4,9 @@ class Booking {
     this.booking = $(idBooking);
     this.canvasObject = canvasObject;
     this.initWebStorage();
-    this.initBookingInterface();
+    document
+      .getElementById("confirm_btn")
+      .addEventListener("click", this.initBookingInterface.bind(this));
   }
   initWebStorage() {
     if (
@@ -31,26 +33,6 @@ class Booking {
   }
   checkCanvas() {
     return !this.canvasObject.isEmpty;
-  }
-  initTimer() {
-    const min = 20 * 60 * 1000;
-
-    let chrono = setInterval(() => {
-      let time = Date.now() - Number(sessionStorage.getItem("timeNow"));
-      let timeRemain = min - time;
-      let minutesRemain = Math.floor(timeRemain / 1000 / 60);
-      let secondsRemain = Math.floor((timeRemain / 1000) % 60);
-      if (String(secondsRemain).length === 1) {
-        secondsRemain = "0" + secondsRemain;
-      }
-      if (time < min) {
-        $("#clock").text(minutesRemain + "min " + secondsRemain + "s");
-      } else {
-        clearInterval(chrono);
-        document.getElementById("clock").innerHTML = "Finished";
-        sessionStorage.clear();
-      }
-    }, 1000);
   }
   initBookingInterface() {
     console.log("XXX -> initBookingInterface method <- XXX");
@@ -97,7 +79,27 @@ class Booking {
       sessionStorage.getItem("stationAddress");
       $("#address").text(sessionStorage.getItem("stationAddress"));
       sessionStorage.setItem("timeNow", Date.now());
-      this.initBookingInterface();
+      // this.initBookingInterface();
     }
+  }
+  initTimer() {
+    const min = 20 * 60 * 1000;
+
+    let chrono = setInterval(() => {
+      let time = Date.now() - Number(sessionStorage.getItem("timeNow"));
+      let timeRemain = min - time;
+      let minutesRemain = Math.floor(timeRemain / 1000 / 60);
+      let secondsRemain = Math.floor((timeRemain / 1000) % 60);
+      if (String(secondsRemain).length === 1) {
+        secondsRemain = "0" + secondsRemain;
+      }
+      if (time < min) {
+        $("#clock").text(minutesRemain + "min " + secondsRemain + "s");
+      } else {
+        clearInterval(chrono);
+        document.getElementById("clock").innerHTML = "Finished";
+        sessionStorage.clear();
+      }
+    }, 1000);
   }
 }
