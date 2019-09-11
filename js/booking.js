@@ -4,6 +4,8 @@ class Booking {
     this.booking = $(idBooking);
     this.canvasObject = canvasObject;
     this.initWebStorage();
+    // this.initBookingInterface();
+
     document
       .getElementById("confirm_btn")
       .addEventListener("click", this.initBookingInterface.bind(this));
@@ -36,30 +38,32 @@ class Booking {
   }
   initBookingInterface() {
     console.log("XXX -> initBookingInterface method <- XXX");
-    if (
-      this.canvasObject.isEmpty ||
-      this.name === null ||
-      this.firstname === null
-    ) {
-      $("#confirm_btn").on("click", () => {
+    let firstname = document.forms["booking_form"]["name"].value;
+    let name = document.forms["booking_form"]["firstname"].value;
+    $("#confirm_btn").on("click", () => {
+      if (
+        this.canvasObject.isEmpty ||
+        firstname == null ||
+        firstname == "" ||
+        name == null ||
+        name == ""
+      ) {
         $("#complete_inputs").text("Please fill in the fields");
         $("#booking_status").hide();
         console.log("NOPE FILL IN THE FIIIIELDS");
-      });
-    } else {
-      $("#confirm_btn").on("click", () => {
+      } else {
         $("#booking_status").show();
         $("#booking_form").hide();
         $(".leaflet-popup").hide();
         this.initTimer();
         console.log("OKAYYY BITCH");
-      });
-      $("#clear_btn").on("click", () => {
-        $("#booking_status").hide();
-        $("#booking_form").show();
-        $(".leaflet-popup").show();
-      });
-    }
+        $("#clear_btn").on("click", () => {
+          $("#booking_status").hide();
+          $("#booking_form").show();
+          $(".leaflet-popup").show();
+        });
+      }
+    }); // confirm_btn
   }
   book(e) {
     e.preventDefault();
@@ -84,7 +88,6 @@ class Booking {
   }
   initTimer() {
     const min = 20 * 60 * 1000;
-
     let chrono = setInterval(() => {
       let time = Date.now() - Number(sessionStorage.getItem("timeNow"));
       let timeRemain = min - time;
