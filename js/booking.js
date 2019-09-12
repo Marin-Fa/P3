@@ -2,12 +2,12 @@ class Booking {
   constructor(idBooking, canvasObject) {
     this.booking = $(idBooking);
     this.canvasObject = canvasObject;
+    this.initWebStorage();
     this.initBookingInterface();
     $("#booking").on("submit", this.book.bind(this));
-    $("#firstname_bk").on("submit", this.initWebStorage.bind(this));
-    $("#name_bk").on("submit", this.initWebStorage.bind(this));
   }
   initWebStorage() {
+    console.log("XXX -> initWebStorage method <- XXX");
     if (
       localStorage.getItem("name_bk") &&
       localStorage.getItem("firstname_bk")
@@ -36,6 +36,8 @@ class Booking {
     $("#confirm_btn").on("click", () => {
       let firstname = document.forms["booking_form"]["name"].value;
       let name = document.forms["booking_form"]["firstname"].value;
+      console.log(name);
+      console.log(firstname);
       if (
         this.canvasObject.isEmpty ||
         firstname == null ||
@@ -45,21 +47,11 @@ class Booking {
       ) {
         $("#complete_inputs").text("Please fill in the fields");
         $("#booking_status").hide();
-        console.log("NOPE FILL IN THE FIIIIELDS");
-        console.log(this.canvasObject.isEmpty);
-        console.log(firstname);
-        console.log(name);
-        console.log("if");
       } else {
         $("#booking_status").show();
         $("#booking_form").hide();
         $(".leaflet-popup").hide();
         this.initTimer();
-        console.log("OKAYYY BITCH");
-        console.log(this.canvasObject.isEmpty);
-        console.log(firstname);
-        console.log(name);
-        console.log("else");
         $("#clear_btn").on("click", () => {
           $("#booking_status").hide();
           $("#booking_form").show();
@@ -86,7 +78,6 @@ class Booking {
       sessionStorage.getItem("stationAddress");
       $("#address").text(sessionStorage.getItem("stationAddress"));
       sessionStorage.setItem("timeNow", Date.now());
-      // this.initBookingInterface();
     }
   }
   initTimer() {
@@ -104,7 +95,6 @@ class Booking {
       } else {
         clearInterval(chrono);
         $("#clock").text("Finished");
-        // document.getElementById("clock").innerHTML = "Finished";
         sessionStorage.clear();
       }
     }, 1000);
