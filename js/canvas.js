@@ -9,7 +9,11 @@ class Canvas {
     this.ctx.lineWidth = 2;
     this.ctx.strokeStyle = "#b20000";
     this.initPointerEvents();
-    $("#clear_btn_canvas").on("click", this.clearPad.bind(this));
+
+    document
+      .getElementById("clear_btn_canvas")
+      .addEventListener("click", this.clearPad.bind(this));
+    // $("#clear_btn_canvas").on("click", this.clearPad.bind(this));
   }
   initPointerEvents() {
     this.canvas.on("mousedown touchstart", e => {

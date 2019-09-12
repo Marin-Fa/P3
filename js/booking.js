@@ -1,14 +1,11 @@
 class Booking {
   constructor(idBooking, canvasObject) {
-    $("#booking").on("submit", this.book.bind(this));
     this.booking = $(idBooking);
     this.canvasObject = canvasObject;
-    this.initWebStorage();
-    // this.initBookingInterface();
-
-    document
-      .getElementById("confirm_btn")
-      .addEventListener("click", this.initBookingInterface.bind(this));
+    this.initBookingInterface();
+    $("#booking").on("submit", this.book.bind(this));
+    $("#firstname_bk").on("submit", this.initWebStorage.bind(this));
+    $("#name_bk").on("submit", this.initWebStorage.bind(this));
   }
   initWebStorage() {
     if (
@@ -19,8 +16,6 @@ class Booking {
       this.firstname = localStorage.getItem("firstname_bk");
       $("#name_bk").val(this.name);
       $("#firstname_bk").val(this.firstname);
-      // console.log(this.firstname);
-      // console.log(this.name);
     }
   }
   checkWebStorage(elt) {
@@ -38,9 +33,9 @@ class Booking {
   }
   initBookingInterface() {
     console.log("XXX -> initBookingInterface method <- XXX");
-    let firstname = document.forms["booking_form"]["name"].value;
-    let name = document.forms["booking_form"]["firstname"].value;
     $("#confirm_btn").on("click", () => {
+      let firstname = document.forms["booking_form"]["name"].value;
+      let name = document.forms["booking_form"]["firstname"].value;
       if (
         this.canvasObject.isEmpty ||
         firstname == null ||
@@ -51,19 +46,27 @@ class Booking {
         $("#complete_inputs").text("Please fill in the fields");
         $("#booking_status").hide();
         console.log("NOPE FILL IN THE FIIIIELDS");
+        console.log(this.canvasObject.isEmpty);
+        console.log(firstname);
+        console.log(name);
+        console.log("if");
       } else {
         $("#booking_status").show();
         $("#booking_form").hide();
         $(".leaflet-popup").hide();
         this.initTimer();
         console.log("OKAYYY BITCH");
+        console.log(this.canvasObject.isEmpty);
+        console.log(firstname);
+        console.log(name);
+        console.log("else");
         $("#clear_btn").on("click", () => {
           $("#booking_status").hide();
           $("#booking_form").show();
           $(".leaflet-popup").show();
         });
       }
-    }); // confirm_btn
+    });
   }
   book(e) {
     e.preventDefault();
@@ -100,7 +103,8 @@ class Booking {
         $("#clock").text(minutesRemain + "min " + secondsRemain + "s");
       } else {
         clearInterval(chrono);
-        document.getElementById("clock").innerHTML = "Finished";
+        $("#clock").text("Finished");
+        // document.getElementById("clock").innerHTML = "Finished";
         sessionStorage.clear();
       }
     }, 1000);
