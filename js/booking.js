@@ -7,7 +7,6 @@ class Booking {
     $("#booking").on("submit", this.book.bind(this));
   }
   initWebStorage() {
-    console.log("XXX -> initWebStorage method <- XXX");
     if (
       localStorage.getItem("name_bk") &&
       localStorage.getItem("firstname_bk")
@@ -32,10 +31,9 @@ class Booking {
     return !this.canvasObject.isEmpty;
   }
   initBookingInterface() {
-    console.log("XXX -> initBookingInterface method <- XXX");
     $("#confirm_btn").on("click", () => {
-      let firstname = document.forms["booking_form"]["name"].value;
-      let name = document.forms["booking_form"]["firstname"].value;
+      let firstname = $("#name_bk").val();
+      let name = $("#firstname_bk").val();
       console.log(name);
       console.log(firstname);
       if (

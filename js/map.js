@@ -65,7 +65,6 @@ class Map {
       "<br/><b>Available bike stands:</b> " +
       station.available_bike_stands +
       "<br/><br/><a class='bookNow' href='#booking'>Book now</a> ";
-    // <a href='#booking'</a></a>
 
     let marker = L.marker([station.position.lat, station.position.lng], {
       icon: icon
@@ -74,9 +73,7 @@ class Map {
 
     marker.addEventListener("popupopen", () => {
       let bookNow = $(marker.getPopup()._contentNode).find(".bookNow")[0];
-
       $(bookNow).hide();
-
       $.get(
         "https://api.jcdecaux.com/vls/v1/stations/" +
           station.number +
@@ -85,11 +82,9 @@ class Map {
           this.selectedStation = station; // héritage qui marche pas
           sessionStorage.setItem("stationName", station.name);
           sessionStorage.setItem("stationAddress", station.address);
-          console.log(this.selectedStation.address);
 
           if (station.status != "CLOSED" && station.available_bikes > 0) {
             $(bookNow).show();
-
             $(bookNow).on("click", () => {
               $("#booking").show(500);
             });
@@ -97,7 +92,6 @@ class Map {
         }
       );
     });
-
     marker.addEventListener("popupclose", () => {
       $("#booking").hide();
     });

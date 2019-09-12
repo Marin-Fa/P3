@@ -8,23 +8,23 @@ class Slider {
     this.items = classSlider;
     this.currentSlide = 0;
     this.controls = "play";
-    this.pauseBtn = document.getElementById("singlebutton");
+    this.pauseBtn = $("#singlebutton");
 
-    document.addEventListener("keydown", this.keybordControl.bind(this));
+    $(document).on("keydown", this.keybordControl.bind(this));
 
-    document
-      .getElementById("next")
-      .addEventListener("click", this.nextSlide.bind(this));
+    $("#next").on("click", () => {
+      this.nextSlide();
+    });
 
-    document
-      .getElementById("previous")
-      .addEventListener("click", this.prevSlide.bind(this));
+    $("#previous").on("click", () => {
+      this.prevSlide();
+    });
 
-    document.getElementById("singlebutton").addEventListener("click", () => {
+    $("#singlebutton").on("click", () => {
       if (this.controls === "play") {
-        this.pauseBtn.innerHTML = "Play";
+        $(this.pauseBtn).text("Play");
       } else {
-        this.pauseBtn.innerHTML = "Pause";
+        $(this.pauseBtn).text("Pause");
       }
       this.actualControl();
     });
