@@ -10,9 +10,6 @@ class Canvas {
     this.ctx.strokeStyle = "#b20000";
     this.initPointerEvents();
 
-    // document
-    //   .getElementById("clear_btn_canvas")
-    //   .addEventListener("click", this.clearPad.bind(this));
     $("#clear_btn_canvas").on("click", this.clearPad());
   }
   initPointerEvents() {
