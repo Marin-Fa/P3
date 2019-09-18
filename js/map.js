@@ -22,6 +22,8 @@ class Map {
     this.map.addLayer(this.mapLayer);
     this.markerClusters = new L.markerClusterGroup();
     this.getLyonStations();
+    // Disable the scroll zoom during the navigation
+    this.map.scrollWheelZoom.disable();
   }
   getLyonStations() {
     let thiz = this;
