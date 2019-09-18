@@ -7,6 +7,9 @@ body {
   background: #fff;
   color: #2a315e;
   font-family: "Raleway", sans-serif;
+  min-width: 460px;
+  max-width: 2048px;
+  border: 3px solid green;
 }
 
 a {
@@ -73,17 +76,18 @@ h6 {
 }
 
 /* Header */
+#shiiiiiet {
+  height: 100px;
+  border: 3px solid grey;
+  z-index: 999;
+  transition: all 0.5s;
+  background-color: white;
+}
 
 #header {
-  height: 90px;
+  height: 100px;
   padding: 20px 0;
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  transition: all 0.5s;
-  z-index: 999;
-  background-color: white;
+  border: 3px solid pink;
 }
 
 #header.header-scrolled,
@@ -372,23 +376,23 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 /* Slider */
-
-.container-fluid {
-  /* padding-top: 5em; */
+#slider {
+  display: block;
+  border: 3px solid red;
+  height: 80vh;
+  overflow: hidden;
 }
 .container-slider {
-  background-color: #fff;
-  width: 100%;
-  height: auto;
   padding-left: 30px;
   padding-right: 30px;
+  height: 100%;
 }
 #slides {
   margin: 0px;
   list-style-type: none;
   padding: 0;
   position: relative;
-  height: 800px;
+  height: 100%;
 }
 .slide {
   position: absolute;
@@ -398,6 +402,8 @@ body.mobile-nav-active #mobile-nav-toggle {
   opacity: 0;
   z-index: 1;
   transition: opacity 1s;
+  border: 3px solid yellow;
+  height: 100%;
 }
 
 .showing {
@@ -407,7 +413,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 #img1,
 #img2,
 #img3 {
-  width: 100%;
+  width: auto;
+  height: 100%;
 }
 .intro {
   background-size: cover;
@@ -451,7 +458,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-weight: 700;
   font-size: 40px;
 }
-.intro .about-btn {
+.intro .booknow-btn {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 20px;
@@ -466,11 +473,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   animation-delay: 0.8s;
   border: 2px solid #b20000;
 }
-.intro .about-btn:hover {
+.intro .booknow-btn:hover {
   background: #b20000;
   color: #fff;
 }
-#singlebutton {
+#play_button {
   font-family: "Raleway", sans-serif;
   letter-spacing: 1px;
   font-weight: 600;
@@ -479,13 +486,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
   border-color: transparent;
 }
-#singlebutton:hover {
+#play_button:hover {
   background: #b20000;
   color: #fff;
   border-color: transparent;
 }
-#singlebutton:active,
-#singlebutton:focus {
+#play_button:active,
+#play_button:focus {
   border-color: transparent;
 }
 .controls {
@@ -521,17 +528,16 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 /* Map */
-#section_map {
-  padding-top: 20px;
-  padding-left: 150px;
-  padding-right: 150px;
+#map_section {
+  padding-top: 3rem;
+  border: 3px solid blue;
 }
-.center {
-  position: relative;
+#lalala,
+#lololo {
   height: 600px;
 }
 #map {
-  position: absolute;
+  height: 600px;
   top: 0;
   bottom: 0;
   left: 0;
@@ -561,7 +567,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   display: none;
   font-size: 1.75rem;
   font-weight: bolder;
-  /* background-color: pink; */
 }
 #bk {
   font-weight: 700;
@@ -572,6 +577,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 #booking_status {
   display: none;
   font-size: 1.75rem;
+}
+#booking_status_title {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #2a315e;
+  text-transform: uppercase;
 }
 label,
 #signature {
@@ -591,12 +602,20 @@ label,
 #firstname_bk,
 #name_bk {
   border: 1px solid #2a315e;
+  width: 12rem;
 }
 #complete_inputs {
   color: #b20000;
 }
 #canvas {
   border: 1px solid #2a315e;
+}
+#confirm_btn {
+  font-size: 1.4rem;
+}
+#clear_btn {
+  font-size: 1.3rem;
+  margin-top: 1rem;
 }
 #clear_btn_canvas {
   font-size: 1.2rem;
@@ -752,12 +771,47 @@ button:focus {
 }
 
 @media (max-width: 1920px) {
-  #slides {
-    height: 945px;
+  #slider {
+    height: 80vh;
+  }
+  #booking_form {
+    font-size: 1.6rem;
+  }
+  #bk {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+  }
+  #inputs {
+    font-size: 1.6rem;
+  }
+  #confirm_btn {
+    padding: 10px 40px;
   }
 }
-
-@media (max-width: 1199px) {
+@media (max-width: 1660px) {
+  #slider {
+    height: 70vh;
+  }
+  #booking_form {
+    font-size: 1.3rem;
+  }
+  #bk {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+  #inputs {
+    font-size: 1.3rem;
+  }
+  #confirm_btn {
+    padding: 5px 20px;
+  }
+}
+@media (max-width: 1440px) {
+  #slider {
+    height: 65vh;
+  }
+}
+@media (max-width: 1200px) {
   #header .container {
     max-width: 100%;
   }
@@ -770,17 +824,12 @@ button:focus {
   .intro p {
     font-size: 42px;
   }
-  #slides {
-    height: 584.5px;
-  }
-  #section_map {
-    padding-top: 1em;
-    padding-left: 90px;
-    padding-right: 90px;
+  #slider {
+    height: 60vh;
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 992px) {
   #header {
     background: white;
     height: 70px;
@@ -793,8 +842,8 @@ button:focus {
   #mobile-nav-toggle {
     display: inline;
   }
-  #slides {
-    height: 480.5px;
+  #slider {
+    height: 50vh;
   }
   .intro h1 {
     font-size: 40px;
@@ -802,27 +851,30 @@ button:focus {
   .intro p {
     font-size: 22px;
   }
-  #section_map {
-    padding-top: 1em;
-    padding-left: 60px;
-    padding-right: 60px;
+  #booking_form {
+    font-size: 1.3rem;
+  }
+  #bk {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+  #inputs {
+    font-size: 1.3rem;
+  }
+  #confirm_btn {
+    padding: 5px 20px;
   }
 }
 
 @media (max-width: 768px) {
-  #slides {
-    height: 369px;
+  #slider {
+    height: 45vh;
   }
   .intro h1 {
     font-size: 40px;
   }
   .intro p {
     font-size: 22px;
-  }
-  #section_map {
-    padding-top: 1em;
-    padding-left: 30px;
-    padding-right: 30px;
   }
   #contact {
     padding: 1em 0;
@@ -830,8 +882,8 @@ button:focus {
 }
 
 @media (max-width: 460px) {
-  #slides {
-    height: 215px;
+  #slider {
+    height: 35vh;
   }
   .intro h1 {
     font-size: 30px;
@@ -839,38 +891,17 @@ button:focus {
   .intro p {
     font-size: 12px;
   }
-  .intro .about-btn {
+  .intro .booknow-btn {
     font-size: 12px;
     padding: 6px 16px;
     margin: 5px;
     border: 2px solid #b20000;
   }
-  #section_map {
-    padding-top: 1em;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-@media (max-width: 320px) {
-  #slides {
-    height: 145px;
-  }
-  .intro h1 {
-    font-size: 24px;
+  #map {
+    margin-left: 1rem;
   }
 
-  .intro p {
-    font-size: 10px;
-  }
-  .intro .about-btn {
-    font-size: 10px;
-    padding: 6px 16px;
-    margin: 5px;
-    border: 1px solid #b20000;
-  }
-  #section_map {
-    padding-top: 1em;
-    padding-left: 20px;
-    padding-right: 20px;
+  #booking_form {
+    font-size: 1.5rem;
   }
 }

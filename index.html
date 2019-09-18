@@ -43,32 +43,32 @@
   </head>
 
   <body>
-    <!-- Header -->
-    <div class="row">
-      <header id="header" class="col-md-12">
-        <div class="container">
-          <div id="logo" class="pull-left">
-            <a href="#slides" class="scrollto"
-              ><img src="img/logo.png" alt="" title=""
-            /></a>
+    <div class="container-fluid">
+      <!-- Header -->
+      <div id="shiiiiiet" class="col-12">
+        <nav id="header">
+          <div class="container">
+            <div id="logo" class="pull-left">
+              <a href="#slides" class="scrollto"
+                ><img src="img/logo.png" alt="" title=""
+              /></a>
+            </div>
+
+            <nav id="nav-menu-container">
+              <ul class="nav-menu">
+                <li class="menu-active"><a href="#slides">Home</a></li>
+                <li><a href="#map">Map</a></li>
+                <li class="show-map"><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
           </div>
+        </nav>
+      </div>
 
-          <nav id="nav-menu-container">
-            <ul class="nav-menu">
-              <li class="menu-active"><a href="#slides">Home</a></li>
-              <li><a href="#map">Map</a></li>
-              <li class="show-map"><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-    </div>
-
-    <!-- First Container -->
-    <div class="row">
-      <div class="container-fluid center-block text-center">
-        <div class="container-slider">
-          <div id="slides">
+      <!-- Slider -->
+      <div id="slider">
+        <div class="container-slider container-fluid col-12">
+          <div id="slides" class="text-center">
             <div class="slide showing">
               <section id="txt1" class="intro">
                 <div class="intro-container wow fadeIn">
@@ -76,7 +76,7 @@
                   <p class="mb-0">
                     ToGo is always with you, available on a 24/7 basis
                   </p>
-                  <a href="#map" class="about-btn scrollto">Book now</a>
+                  <a href="#map" class="booknow-btn scrollto">Book now</a>
                 </div>
               </section>
               <img
@@ -86,7 +86,6 @@
                 alt="Image de Lyon"
               />
             </div>
-
             <div class="slide">
               <section id="txt2" class="intro">
                 <div class="intro-container wow fadeIn">
@@ -94,7 +93,7 @@
                   <p class="mb-0">
                     and ToGo's available bikes, click on book now
                   </p>
-                  <a href="#map" class="about-btn scrollto">Book now</a>
+                  <a href="#map" class="booknow-btn scrollto">Book now</a>
                 </div>
               </section>
               <img
@@ -111,7 +110,7 @@
                   <p class="mb-0">
                     That's it ! Retrieve your bike within 20 minutes !
                   </p>
-                  <a href="#map" class="about-btn scrollto">Book now</a>
+                  <a href="#map" class="booknow-btn scrollto">Book now</a>
                 </div>
               </section>
               <img
@@ -121,174 +120,172 @@
                 alt="Image de Lyon"
               />
             </div>
+          </div>
+        </div>
+      </div>
 
-            <div class="controls col-md-12 text-center">
-              <button
-                id="singlebutton"
-                name="singlebutton"
-                class="btn btn-primary about-btn"
-              >
-                Pause
-              </button>
-              <div class="arrows">
-                <div id="previous" class="arrow_left"></div>
-                <div id="next" class="arrow_right"></div>
+      <!-- Slider controls -->
+      <div id="slider_controls" class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <div class="controls col-md-12 text-center">
+            <button
+              id="play_button"
+              name="singlebutton"
+              class="btn btn-primary about-btn"
+            >
+              Pause
+            </button>
+            <div class="arrows">
+              <div id="previous" class="arrow_left"></div>
+              <div id="next" class="arrow_right"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2"></div>
+      </div>
+
+      <!-- Map -->
+      <div id="map_section" class="row">
+        <div class="col-lg-12 col-sm-12" id="lalala">
+          <div id="map"></div>
+        </div>
+
+        <!-- Booking inputs -->
+        <div class="col-lg-3 col-sm-12" id="lololo">
+          <div id="booking" class="text-center">
+            <form id="booking_form">
+              <h2 id="bk">Booking</h2>
+              <div id="inputs">
+                <label for="firstname">Your firstname</label><br />
+                <input type="text" id="firstname_bk" name="firstname" /><br />
+                <label for="surname">Your name</label><br />
+                <input type="text" id="name_bk" name="name" />
+              </div>
+              <div id="signature">
+                <p>Your signature</p>
+                <canvas id="canvas" width="150" height="150"></canvas><br />
+                <div id="complete_inputs"></div>
+                <button id="clear_btn_canvas">Clear</button><br />
+                <button id="confirm_btn">Confirm</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking Status -->
+      <div class="row">
+        <div class="col-3"></div>
+        <div id="booking_status" class="col-md-6 text-center">
+          <b id="booking_status_title">Get ready for a ride !</b><br />
+          <b id="firstname_bkd"></b>
+          <b id="name_bkd"></b><br />
+          <b id="station_bkd">Station: <span id="station"></span></b><br />
+          <b id="address_bkd">Address: <span id="address"></span></b><br />
+          <b id="timer">Time remaining : <span id="clock"></span> </b><br />
+          <div id="remaining_time"></div>
+          <button type="submit" id="clear_btn">Clear</button>
+        </div>
+        <div class="col-3"></div>
+      </div>
+
+      <!-- Contact -->
+      <section id="contact" class="section-bg wow fadeInUp">
+        <div class="container">
+          <div class="section-header">
+            <h2>Contact Us</h2>
+          </div>
+
+          <div class="row contact-info">
+            <div class="col-md-4">
+              <div class="contact-address">
+                <i class="ion-ios-location-outline"></i>
+                <h3>Address</h3>
+                <address>1 Place Bellecour, 69001 LYON, FRANCE</address>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="contact-phone">
+                <i class="ion-ios-telephone-outline"></i>
+                <h3>Phone Number</h3>
+                <p><a href="tel:+155895548855">+33 4 74 64 52 33</a></p>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="contact-email">
+                <i class="ion-ios-email-outline"></i>
+                <h3>Email</h3>
+                <p><a href="mailto:info@example.com">info@togo.com</a></p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Map -->
-    <div class="row">
-      <div id="section_map" class="container-fluid center-block text-center">
-        <div class="center">
-          <div id="map" class="col-md-12"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-4"></div>
-      <div id="booking" class="col-md-4">
-        <div class="text-center">
-          <h2 id="bk">Booking</h2>
-          <form id="booking_form">
-            <div id="inputs">
-              <label for="firstname">Your firstname</label><br />
-              <input
-                type="text"
-                id="firstname_bk"
-                name="firstname"
-                maxlength="20"
-              /><br />
-              <label for="surname">Your name</label><br />
-              <input type="text" id="name_bk" name="name" maxlength="20" />
-            </div>
-            <div id="signature">
-              <p>Your signature</p>
-
-              <canvas id="canvas" width="150" height="150"></canvas><br />
-              <div id="complete_inputs"></div>
-              <button id="clear_btn_canvas">Clear</button><br />
-              <button id="confirm_btn">Confirm</button>
-            </div>
-          </form>
-          <div id="booking_status">
-            <b>Get ready for a ride !</b><br />
-            <b id="firstname_bkd"></b><br />
-            <b id="name_bkd"></b><br />
-            <b id="station_bkd">Station: <span id="station"></span></b><br />
-            <b id="address_bkd">Address: <span id="address"></span></b><br />
-            <b id="timer"
-              >Time remaining :<br />
-              <span id="clock"></span> </b
-            ><br />
-            <div id="remaining_time"></div>
-            <button id="clear_btn">Clear</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-4"></div>
-    </div>
-
-    <!-- Contact -->
-    <section id="contact" class="section-bg wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Contact Us</h2>
-        </div>
-
-        <div class="row contact-info">
-          <div class="col-md-4">
-            <div class="contact-address">
-              <i class="ion-ios-location-outline"></i>
-              <h3>Address</h3>
-              <address>1 Place Bellecour, 69001 LYON, FRANCE</address>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-phone">
-              <i class="ion-ios-telephone-outline"></i>
-              <h3>Phone Number</h3>
-              <p><a href="tel:+155895548855">+33 4 74 64 52 33</a></p>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-email">
-              <i class="ion-ios-email-outline"></i>
-              <h3>Email</h3>
-              <p><a href="mailto:info@example.com">info@togo.com</a></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="form">
-          <div id="sendmessage">Your message has been sent. Thank you!</div>
-          <div id="errormessage"></div>
-          <form action="" method="post" role="form" class="contactForm">
-            <div class="form-row">
-              <div class="form-group col-md-6">
+          <div class="form">
+            <div id="sendmessage">Your message has been sent. Thank you!</div>
+            <div id="errormessage"></div>
+            <form action="" method="post" class="contactForm">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    id="name"
+                    placeholder="Your Name"
+                    data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars"
+                  />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="email"
+                    placeholder="Your Email"
+                    data-rule="email"
+                    data-msg="Please enter a valid email"
+                  />
+                  <div class="validation"></div>
+                </div>
+              </div>
+              <div class="form-group">
                 <input
                   type="text"
-                  name="name"
                   class="form-control"
-                  id="name"
-                  placeholder="Your Name"
+                  name="subject"
+                  id="subject"
+                  placeholder="Subject"
                   data-rule="minlen:4"
-                  data-msg="Please enter at least 4 chars"
+                  data-msg="Please enter at least 8 chars of subject"
                 />
                 <div class="validation"></div>
               </div>
-              <div class="form-group col-md-6">
-                <input
-                  type="email"
+              <div class="form-group">
+                <textarea
                   class="form-control"
-                  name="email"
-                  id="email"
-                  placeholder="Your Email"
-                  data-rule="email"
-                  data-msg="Please enter a valid email"
-                />
+                  name="message"
+                  rows="5"
+                  data-rule="required"
+                  data-msg="Please write something for us"
+                  placeholder="Message"
+                ></textarea>
                 <div class="validation"></div>
               </div>
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                name="subject"
-                id="subject"
-                placeholder="Subject"
-                data-rule="minlen:4"
-                data-msg="Please enter at least 8 chars of subject"
-              />
-              <div class="validation"></div>
-            </div>
-            <div class="form-group">
-              <textarea
-                class="form-control"
-                name="message"
-                rows="5"
-                data-rule="required"
-                data-msg="Please write something for us"
-                placeholder="Message"
-              ></textarea>
-              <div class="validation"></div>
-            </div>
-            <div class="text-center">
-              <button type="submit">Send Message</button>
-            </div>
-          </form>
+              <div class="text-center">
+                <button type="submit">Send Message</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-
+      <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+    </div>
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -86,7 +86,9 @@ class Map {
           if (station.status != "CLOSED" && station.available_bikes > 0) {
             $(bookNow).show();
             $(bookNow).on("click", () => {
+              $("#lololo").show();
               $("#booking").show(500);
+              $("#lalala").toggleClass("col-lg-12 col-lg-9");
             });
           }
         }
@@ -94,6 +96,8 @@ class Map {
     });
     marker.addEventListener("popupclose", () => {
       $("#booking").hide();
+      $("#lalala").toggleClass("col-lg-9 col-lg-12");
+      $("#lololo").hide();
     });
   }
 }

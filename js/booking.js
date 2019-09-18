@@ -49,11 +49,15 @@ class Booking {
         $("#booking_status").show();
         $("#booking_form").hide();
         $(".leaflet-popup").hide();
+        $("#lalala").toggleClass("col-lg-9 col-lg-12");
+        $("#lololo").hide();
         this.initTimer();
         $("#clear_btn").on("click", () => {
           $("#booking_status").hide();
           $("#booking_form").show();
           $(".leaflet-popup").show();
+          $("#lololo").show();
+          $("#lalala").toggleClass("col-lg-12 col-lg-9");
         });
       }
     });

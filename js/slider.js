@@ -1,3 +1,4 @@
+//Defining slider class
 class Slider {
   constructor(interval, classSlider) {
     this.timeInterval = interval;
@@ -8,19 +9,20 @@ class Slider {
     this.items = classSlider;
     this.currentSlide = 0;
     this.controls = "play";
-    this.pauseBtn = $("#singlebutton");
+    this.pauseBtn = $("#play_button");
 
     $(document).on("keydown", this.keybordControl.bind(this));
-
+    //Called when user clicks on next button
     $("#next").on("click", () => {
       this.nextSlide();
     });
-
+    //Called when user clicks on previous button under carousel
     $("#previous").on("click", () => {
       this.prevSlide();
     });
-
-    $("#singlebutton").on("click", () => {
+    //When user clicks on play or pause button
+    //Pausing or playing carousel depending on its current status
+    $("#play_button").on("click", () => {
       if (this.controls === "play") {
         $(this.pauseBtn).text("Play");
       } else {
