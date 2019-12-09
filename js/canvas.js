@@ -14,6 +14,7 @@ class Canvas {
     //   .getElementById("clear_btn_canvas")
     //   .addEventListener("click", this.clearPad.bind(this));
     $("#clear_btn_canvas").on("click", this.clearPad());
+    $("#clear_btn_canvas").on("click", console.log("clear"));
   }
   initPointerEvents() {
     this.canvas.on("mousedown touchstart", e => {

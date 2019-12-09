@@ -29,9 +29,9 @@ class Map {
     let thiz = this;
     $.get(
       "https://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=1692d146857047d2d74e535ea581e535313e858f",
-      function(stations) {
+      function (stations) {
         // console.log("This is", thiz);
-        stations.forEach(function(station) {
+        stations.forEach(function (station) {
           thiz.addMarker(station);
         });
         thiz.map.addLayer(thiz.markerClusters);
@@ -78,9 +78,9 @@ class Map {
       $(bookNow).hide();
       $.get(
         "https://api.jcdecaux.com/vls/v1/stations/" +
-          station.number +
-          "?contract=Lyon&apiKey=1692d146857047d2d74e535ea581e535313e858f",
-        function(station) {
+        station.number +
+        "?contract=Lyon&apiKey=1692d146857047d2d74e535ea581e535313e858f",
+        function (station) {
           this.selectedStation = station; // héritage qui marche pas
           sessionStorage.setItem("stationName", station.name);
           sessionStorage.setItem("stationAddress", station.address);
@@ -90,15 +90,18 @@ class Map {
             $(bookNow).on("click", () => {
               $("#lololo").show();
               $("#booking").show(500);
-              $("#lalala").toggleClass("col-lg-12 col-lg-9");
+              // $("#lalala").toggleClass("col-9");
+              $("#lalala").removeClass('col-lg-12 col-sm-12').addClass('col-9')
             });
           }
         }
       );
     });
+
     marker.addEventListener("popupclose", () => {
       $("#booking").hide();
-      $("#lalala").toggleClass("col-lg-9 col-lg-12");
+      // $("#lalala").toggleClass("col-12");
+      $("#lalala").removeClass('col-9').addClass('col-lg-12 col-sm-12')
       $("#lololo").hide();
     });
   }
