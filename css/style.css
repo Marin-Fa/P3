@@ -306,8 +306,8 @@ h6 {
   padding-top: 3rem;
   /* border: 3px solid blue; */
 }
-#lalala,
-#lololo {
+#map_col,
+#booking_inputs_col {
   height: 600px;
 }
 #map {
@@ -351,6 +351,7 @@ h6 {
 #booking_status {
   display: none;
   font-size: 1.75rem;
+  padding-top: 1rem;
 }
 #booking_status_title {
   font-weight: 700;
@@ -412,7 +413,7 @@ label,
 }
 /* Contact */
 #contact {
-  padding-top: 2em;
+  padding-top: 3em;
 }
 .section-header {
   margin-bottom: 20px;
@@ -649,8 +650,12 @@ button:focus {
     margin: 5px;
     border: 2px solid #b20000;
   }
+  #map_col {
+    height: 400px;
+  }
   #map {
-    margin-left: 1rem;
+    height: 400px;
+    /* margin-left: 1rem; */
   }
 
   #booking_form {

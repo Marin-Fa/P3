@@ -3,5 +3,5 @@ $(() => {
   const newCanvas = new Canvas("canvas", 150, 150);
   const newBooking = new Booking("booking", newCanvas);
   const newSlider = new Slider(5000, $("#slides .slide"));
-  $("#lololo").hide();
+  $("#booking_inputs_col").hide();
 });

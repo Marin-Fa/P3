@@ -88,10 +88,10 @@ class Map {
           if (station.status != "CLOSED" && station.available_bikes > 0) {
             $(bookNow).show();
             $(bookNow).on("click", () => {
-              $("#lololo").show();
+              $("#booking_inputs_col").show();
               $("#booking").show(500);
-              // $("#lalala").toggleClass("col-9");
-              $("#lalala").removeClass('col-lg-12 col-sm-12').addClass('col-9')
+              // $("#map_col").toggleClass("col-9");
+              $("#map_col").removeClass('col-lg-12 col-sm-12').addClass('col-lg-9 col-sm-12')
             });
           }
         }
@@ -100,9 +100,9 @@ class Map {
 
     marker.addEventListener("popupclose", () => {
       $("#booking").hide();
-      // $("#lalala").toggleClass("col-12");
-      $("#lalala").removeClass('col-9').addClass('col-lg-12 col-sm-12')
-      $("#lololo").hide();
+      // $("#map_col").toggleClass("col-12");
+      $("#map_col").removeClass('col-lg-9').addClass('col-lg-12 col-sm-12')
+      $("#booking_inputs_col").hide();
     });
   }
 }

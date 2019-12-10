@@ -34,8 +34,6 @@ class Booking {
     $("#confirm_btn").on("click", () => {
       let firstname = $("#name_bk").val();
       let name = $("#firstname_bk").val();
-      console.log(name);
-      console.log(firstname);
       if (
         this.canvasObject.isEmpty ||
         firstname == null ||
@@ -49,19 +47,19 @@ class Booking {
         $("#booking_status").show();
         $("#booking_form").hide();
         $(".leaflet-popup").hide();
-        // $("#lalala").toggleClass("col-lg-9 col-lg-12");
-        $("#lalala").removeClass('col-9').addClass('col-lg-12 col-sm-12')
-        // $("#lalala").removeClass('col-lg-12 col-sm-12').addClass('col-9')
-        $("#lololo").hide();
+        // $("#map_col").toggleClass("col-lg-9 col-lg-12");
+        $("#map_col").removeClass('col-lg-9').addClass('col-lg-12 col-sm-12')
+        // $("#map_col").removeClass('col-lg-12 col-sm-12').addClass('col-9')
+        $("#booking_inputs_col").hide();
         this.initTimer();
         $("#clear_btn").on("click", () => {
           $("#booking_status").hide();
           $("#booking_form").show();
           $(".leaflet-popup").show();
-          $("#lololo").show();
-          // $("#lalala").toggleClass("col-lg-12 col-lg-9");
-          // $("#lalala").removeClass('col-9').addClass('col-lg-12 col-sm-12')
-          $("#lalala").removeClass('col-lg-12 col-sm-12').addClass('col-9')
+          $("#booking_inputs_col").show();
+          // $("#map_col").toggleClass("col-lg-12 col-lg-9");
+          // $("#map_col").removeClass('col-9').addClass('col-lg-12 col-sm-12')
+          $("#map_col").removeClass('col-lg-12 col-sm-12').addClass('col-lg-9 col-sm-12')
 
         });
       }
