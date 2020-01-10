@@ -1,18 +1,30 @@
 class Canvas {
+  /**
+   * [[Description]]
+   * Canva API
+   * @param {string} idCanvas canvas ID inside the HTML
+   * @param {number} width canvas width
+   * @param {number} height canvas height
+   */
   constructor(idCanvas, width, height) {
     this.canvas = $(idCanvas);
     this.canvas[0].width = width;
     this.canvas[0].height = height;
     this.ctx = this.canvas[0].getContext("2d");
     this.draw = false;
-    this.isEmpty = true;
+    this.isEmpty = true; // By default the canvas is empty
+    // Drawing style
     this.ctx.lineWidth = 2;
     this.ctx.strokeStyle = "#b20000";
     this.initPointerEvents();
+
     $("#clear_btn_canvas").on("click", () => {
       this.clearPad();
     });
   }
+  /**
+   * Events of the mouse and mobile touch
+   */
   initPointerEvents() {
     this.canvas.on("mousedown touchstart", e => {
       // init signature
@@ -25,6 +37,10 @@ class Canvas {
       this.draw = false;
     });
   }
+  /**
+   * Defining the drawing with the mouse or tactil and place the cursor inside the canvas
+   * @param {object} e event used in the method to get positions of mouse or finger
+   */
   signPad(e) {
     if (this.draw === true) {
       this.posX;
@@ -43,8 +59,11 @@ class Canvas {
       this.ctx.stroke();
     }
   }
+  /**
+   * Clear canvas with "clear_btn_canvas" button
+   */
   clearPad() {
-    this.ctx.clearRect(0, 0, this.canvas[0].width, this.canvas[0].height);
+    this.ctx.clearRect(0, 0, this.canvas[0].width, this.canvas[0].height); // 0 to X an 0 to Y remove the signature
     this.isEmpty = true;
   }
 }

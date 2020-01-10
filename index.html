@@ -1,244 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ToGo</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      content="Togo. Self-service bike rental in Lyon and Villeurbanne."
+      name="description"
+    />
+    <meta property="og:title" content="Togo" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://togo.marinefayolle.com/" />
+    <meta property="og:image" content="img/description_img.png" />
+    <meta
+      property="og:description"
+      content="Togo. Self-service bike rental in Lyon and Villeurbanne."
+    />
+    <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i%7CRaleway:300,400,500,700,800"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Libraries CSS Files -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Main Stylesheet File -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css"
+    />
+    <link
+      crossorigin=""
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      rel="stylesheet"
+    />
+    <script
+      crossorigin=""
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    ></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.0/dist/leaflet.markercluster.js"></script>
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>ToGo</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <meta content="" name="keywords" />
-  <meta content="" name="description" />
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
-    rel="stylesheet" />
-  <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-  <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
-  <link crossorigin="" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-    rel="stylesheet" />
-  <script crossorigin=""
-    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-    src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.4.0/dist/leaflet.markercluster.js"></script>
-</head>
+  <body>
+    <!-- Header -->
+    <div id="top" class="col-12">
+      <nav id="header">
+        <div class="container">
+          <div id="logo" class="pull-left">
+            <a href="#slides" class="scrollto"
+              ><img src="img/logo.png" alt="Togo's logo"
+            /></a>
+          </div>
 
-<body>
-  <!-- Header -->
-  <div id="shiiiiiet" class="col-12">
-    <nav id="header">
-      <div class="container">
-        <div id="logo" class="pull-left">
-          <a href="#slides" class="scrollto"><img src="img/logo.png" alt="" title="" /></a>
+          <div id="nav-menu-container">
+            <ul class="nav-menu">
+              <li class="menu-active"><a href="#slides">Home</a></li>
+              <li><a href="#map">Map</a></li>
+              <li id="contact_btn"><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
         </div>
-
-        <div id="nav-menu-container">
-          <ul class="nav-menu">
-            <li class="menu-active"><a href="#slides">Home</a></li>
-            <li><a href="#map">Map</a></li>
-            <li class="show-map">
-              <button id="contact_btn">
-                <a href="#contact">Contact</a>
-              </button>
-            </li>
-          </ul>
+      </nav>
+    </div>
+    <div class="container-fluid">
+      <!-- Slider -->
+      <div id="slider" class="container col-12">
+        <div class="container-slider">
+          <div id="slides" class="text-center">
+            <div class="slide showing">
+              <section id="txt1" class="intro">
+                <div class="intro-container wow fadeIn">
+                  <h1>Enjoy<br /><span>Lyon</span></h1>
+                  <p>
+                    ToGo is always with you, available on a 24/7 basis
+                  </p>
+                  <a href="#map" class="booknow-btn">Book now</a>
+                </div>
+              </section>
+              <img
+                class="img-fluid"
+                id="img1"
+                src="img/lyon4.jpg"
+                alt="Docks of saone Lyon 1st"
+              />
+            </div>
+            <div class="slide">
+              <section id="txt2" class="intro">
+                <div class="intro-container wow fadeIn">
+                  <h1>Find your<br /><span>Station</span></h1>
+                  <p>
+                    and ToGo's available bikes, click on book now
+                  </p>
+                  <a href="#map" class="booknow-btn">Book now</a>
+                </div>
+              </section>
+              <img
+                class="img-fluid"
+                id="img2"
+                src="img/lyon5.jpg"
+                alt="Docks of saone Lyon 2nd"
+              />
+            </div>
+            <div class="slide">
+              <section id="txt3" class="intro">
+                <div class="intro-container wow fadeIn">
+                  <h1>Fill in<br /><span>the form</span></h1>
+                  <p>
+                    That's it ! Retrieve your bike within 20 minutes !
+                  </p>
+                  <a href="#map" class="booknow-btn">Book now</a>
+                </div>
+              </section>
+              <img
+                class="img-fluid"
+                id="img3"
+                src="img/lyon6.jpg"
+                alt="Bellecour place Lyon 2nd"
+              />
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-  </div>
-  <div class="container-fluid">
-    <!-- Slider -->
-    <div id="slider" class="container col-12">
-      <div class="container-slider">
-        <div id="slides" class="text-center">
-          <div class="slide showing">
-            <section id="txt1" class="intro">
-              <div class="intro-container wow fadeIn">
-                <h1 class="mb-0">Enjoy<br /><span>Lyon</span></h1>
-                <p class="mb-0">
-                  ToGo is always with you, available on a 24/7 basis
-                </p>
-                <a href="#map" class="booknow-btn scrollto">Book now</a>
+
+      <!-- Slider controls -->
+      <div id="slider_controls" class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <div class="controls col-12 text-center">
+            <button
+              id="play_button"
+              name="singlebutton"
+              class="btn btn-primary about-btn"
+            >
+              Pause
+            </button>
+            <div class="arrows">
+              <div id="previous" class="arrow_left"></div>
+              <div id="next" class="arrow_right"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2"></div>
+      </div>
+
+      <!-- Map -->
+      <div id="map_section" class="row">
+        <div class="col-lg-12 col-sm-12" id="map_col">
+          <div id="map"></div>
+        </div>
+
+        <!-- Booking inputs -->
+        <div class="col-lg-3 col-sm-12" id="booking_inputs_col">
+          <div id="booking" class="text-center">
+            <form id="booking_form">
+              <h2 id="bk">Booking</h2>
+              <div id="inputs">
+                <label for="firstname_bk">Your firstname</label><br />
+                <input type="text" id="firstname_bk" name="firstname" /><br />
+                <label for="name_bk">Your name</label><br />
+                <input type="text" id="name_bk" name="name" />
               </div>
-            </section>
-            <img class="img-fluid" id="img1" src="img/lyon4.jpg" alt="Image de Lyon" />
-          </div>
-          <div class="slide">
-            <section id="txt2" class="intro">
-              <div class="intro-container wow fadeIn">
-                <h1 class="mb-0">Find your<br /><span>Station</span></h1>
-                <p class="mb-0">
-                  and ToGo's available bikes, click on book now
-                </p>
-                <a href="#map" class="booknow-btn scrollto">Book now</a>
+              <div id="signature">
+                <p>Your signature</p>
+                <canvas id="canvas" width="150" height="150"></canvas><br />
+                <div id="complete_inputs"></div>
+                <button id="clear_btn_canvas">Clear</button><br />
+                <button id="confirm_btn">Confirm</button>
               </div>
-            </section>
-            <img class="img-fluid" id="img2" src="img/lyon5.jpg" alt="Image de Lyon" />
+            </form>
           </div>
-          <div class="slide">
-            <section id="txt3" class="intro">
-              <div class="intro-container wow fadeIn">
-                <h1 class="mb-0">Fill in<br /><span>the form</span></h1>
-                <p class="mb-0">
-                  That's it ! Retrieve your bike within 20 minutes !
-                </p>
-                <a href="#map" class="booknow-btn scrollto">Book now</a>
+        </div>
+      </div>
+
+      <!-- Booking Status -->
+      <div class="row">
+        <div class="col-3"></div>
+        <div id="booking_status" class="col-md-6 text-center">
+          <b id="booking_status_title">Get ready for a ride !</b><br />
+          <b id="firstname_bkd"></b>
+          <b id="name_bkd"></b><br />
+          <b id="station_bkd">Station: <span id="station"></span></b><br />
+          <b id="address_bkd">Address: <span id="address"></span></b><br />
+          <b id="timer">Time remaining : <span id="clock"></span> </b><br />
+          <div id="remaining_time"></div>
+          <button type="submit" id="clear_btn">Clear</button>
+        </div>
+        <div class="col-3"></div>
+      </div>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="container">
+          <div class="section-header">
+            <h2>Contact Us</h2>
+          </div>
+
+          <div class="row contact-info">
+            <div class="col-md-4">
+              <div class="contact-address">
+                <h3>Address</h3>
+                <address>1 Place Bellecour, 69001 LYON, FRANCE</address>
               </div>
-            </section>
-            <img class="img-fluid" id="img3" src="img/lyon6.jpg" alt="Image de Lyon" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slider controls -->
-    <div id="slider_controls" class="row">
-      <div class="col-2"></div>
-      <div class="col-8">
-        <div class="controls col-md-12 text-center">
-          <button id="play_button" name="singlebutton" class="btn btn-primary about-btn">
-            Pause
-          </button>
-          <div class="arrows">
-            <div id="previous" class="arrow_left"></div>
-            <div id="next" class="arrow_right"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-2"></div>
-    </div>
-
-    <!-- Map -->
-    <div id="map_section" class="row">
-      <div class="col-lg-12 col-sm-12" id="map_col">
-        <div id="map"></div>
-      </div>
-
-      <!-- Booking inputs -->
-      <div class="col-lg-3 col-sm-12" id="booking_inputs_col">
-        <div id="booking" class="text-center">
-          <form id="booking_form">
-            <h2 id="bk">Booking</h2>
-            <div id="inputs">
-              <label for="firstname">Your firstname</label><br />
-              <input type="text" id="firstname_bk" name="firstname" /><br />
-              <label for="surname">Your name</label><br />
-              <input type="text" id="name_bk" name="name" />
             </div>
-            <div id="signature">
-              <p>Your signature</p>
-              <canvas id="canvas" width="150" height="150"></canvas><br />
-              <div id="complete_inputs"></div>
-              <button id="clear_btn_canvas">Clear</button><br />
-              <button id="confirm_btn">Confirm</button>
+
+            <div class="col-md-4">
+              <div class="contact-phone">
+                <h3>Phone Number</h3>
+                <p><a href="tel:+155895548855">+33 4 74 64 52 33</a></p>
+              </div>
             </div>
-          </form>
-        </div>
-      </div>
-    </div>
 
-    <!-- Booking Status -->
-    <div class="row">
-      <div class="col-3"></div>
-      <div id="booking_status" class="col-md-6 text-center">
-        <b id="booking_status_title">Get ready for a ride !</b><br />
-        <b id="firstname_bkd"></b>
-        <b id="name_bkd"></b><br />
-        <b id="station_bkd">Station: <span id="station"></span></b><br />
-        <b id="address_bkd">Address: <span id="address"></span></b><br />
-        <b id="timer">Time remaining : <span id="clock"></span> </b><br />
-        <div id="remaining_time"></div>
-        <button type="submit" id="clear_btn">Clear</button>
-      </div>
-      <div class="col-3"></div>
-    </div>
-
-    <!-- Contact -->
-    <section id="contact" class="section-bg wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Contact Us</h2>
-        </div>
-
-        <div class="row contact-info">
-          <div class="col-md-4">
-            <div class="contact-address">
-              <i class="ion-ios-location-outline"></i>
-              <h3>Address</h3>
-              <address>1 Place Bellecour, 69001 LYON, FRANCE</address>
+            <div class="col-md-4">
+              <div class="contact-email">
+                <h3>Email</h3>
+                <p><a href="mailto:info@example.com">info@togo.com</a></p>
+              </div>
             </div>
           </div>
 
-          <div class="col-md-4">
-            <div class="contact-phone">
-              <i class="ion-ios-telephone-outline"></i>
-              <h3>Phone Number</h3>
-              <p><a href="tel:+155895548855">+33 4 74 64 52 33</a></p>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-email">
-              <i class="ion-ios-email-outline"></i>
-              <h3>Email</h3>
-              <p><a href="mailto:info@example.com">info@togo.com</a></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="form">
-          <div id="sendmessage">Your message has been sent. Thank you!</div>
-          <div id="errormessage"></div>
-          <form action="" method="post" class="contactForm">
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                  data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+          <div class="form_contact">
+            <div id="errormessage"></div>
+            <form method="post" class="contactForm">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    id="name"
+                    placeholder="Your Name"
+                    data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars"
+                  />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="email"
+                    placeholder="Your Email"
+                    data-rule="email"
+                    data-msg="Please enter a valid email"
+                  />
+                  <div class="validation"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="subject"
+                  id="subject"
+                  placeholder="Subject"
+                  data-rule="minlen:4"
+                  data-msg="Please enter at least 8 chars of subject"
+                />
                 <div class="validation"></div>
               </div>
-              <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                  data-rule="email" data-msg="Please enter a valid email" />
+              <div class="form-group">
+                <textarea
+                  class="form-control"
+                  name="message"
+                  rows="5"
+                  data-rule="required"
+                  data-msg="Please write something for us"
+                  placeholder="Message"
+                ></textarea>
                 <div class="validation"></div>
               </div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-              <div class="validation"></div>
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required"
-                data-msg="Please write something for us" placeholder="Message"></textarea>
-              <div class="validation"></div>
-            </div>
-            <div class="text-center">
-              <button type="submit">Send Message</button>
-            </div>
-          </form>
+              <div class="text-center">
+                <button type="submit">Send Message</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    </section>
-  </div>
-  <!-- JavaScript Libraries -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+      </section>
+    </div>
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Template Main Javascript File -->
-  <script src="js/leaflet-providers.js"></script>
-  <script src="js/slider.js"></script>
-  <script src="js/map.js"></script>
-  <script src="js/booking.js"></script>
-  <script src="js/canvas.js"></script>
-  <script src="js/ajax.js"></script>
-  <script src="js/main.js"></script>
-</body>
-
+    <!-- Template Main Javascript File -->
+    <script src="js/leaflet-providers.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

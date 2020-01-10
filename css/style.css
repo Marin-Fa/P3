@@ -7,9 +7,7 @@ body {
   background: #fff;
   color: #2a315e;
   font-family: "Raleway", sans-serif;
-  min-width: 460px;
-  max-width: 2048px;
-  /* border: 3px solid green; */
+  min-width: 320px;
 }
 a {
   color: #b20000;
@@ -39,9 +37,8 @@ h6 {
   color: #2a315e;
 }
 /* Header */
-#shiiiiiet {
+#top {
   height: 100px;
-  /* border: 3px solid grey; */
   z-index: 999;
   transition: all 0.5s;
   background-color: white;
@@ -49,7 +46,6 @@ h6 {
 #header {
   height: 100px;
   padding: 20px 0;
-  /* border: 3px solid pink; */
 }
 #header #logo img {
   padding: 0;
@@ -143,18 +139,35 @@ h6 {
 .nav-menu ul ul {
   margin: 0;
 }
+/* Contact btn */
+#contact_btn {
+  background: #b20000;
+  border: 2px solid #b20000;
+  font-weight: 600;
+  padding: 1px 10px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  cursor: pointer;
+}
+#contact_btn:hover {
+  background: white;
+  border: 2px solid #b20000;
+}
 #contact_btn a {
   color: white;
-  padding: 9px 20px;
 }
-#contact_btn a:hover,
-#contact_btn a:active {
+#contact_btn a:hover {
   color: #2a315e;
+  /* background: white; */
 }
+#contact_btn a:before {
+  height: 0px;
+}
+/* Contact btn */
 /* Slider */
 #slider {
   display: block;
-  /* border: 3px solid red; */
   height: 80vh;
   overflow: hidden;
 }
@@ -178,7 +191,6 @@ h6 {
   opacity: 0;
   z-index: 1;
   transition: opacity 1s;
-  /* border: 3px solid yellow; */
   height: 100%;
 }
 .showing {
@@ -304,7 +316,6 @@ h6 {
 /* Map */
 #map_section {
   padding-top: 3rem;
-  /* border: 3px solid blue; */
 }
 #map_col,
 #booking_inputs_col {
@@ -414,6 +425,9 @@ label,
 /* Contact */
 #contact {
   padding-top: 3em;
+}
+.form_contact button {
+  margin-bottom: 1em;
 }
 .section-header {
   margin-bottom: 20px;
@@ -635,8 +649,22 @@ button:focus {
   }
 }
 @media (max-width: 460px) {
+  #top {
+    height: 70px;
+  }
+  #logo img {
+    height: 40px;
+    padding-bottom: 0 !important;
+  }
+  #contact_btn a {
+    padding: 5px 8px;
+  }
   #slider {
     height: 35vh;
+    padding: 0;
+  }
+  .container-slider {
+    padding: 0;
   }
   .intro h1 {
     font-size: 30px;
@@ -655,7 +683,6 @@ button:focus {
   }
   #map {
     height: 400px;
-    /* margin-left: 1rem; */
   }
 
   #booking_form {
