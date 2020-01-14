@@ -36,7 +36,6 @@ class Map {
     // Disable the scroll zoom during the navigation
     this.map.scrollWheelZoom.disable();
   }
-
   /**
    * Get the infos from JCDecaux's API
    * Add a marker for each station with the addMarker() method
@@ -61,7 +60,7 @@ class Map {
    * Create a "bookNow" button only if there's at least 1 bike available
    * Retrieve the station's infos when "bookNow" is clicked in session storage
    * Display/hide the "booking" form
-   * @param {object} station from ajaxGET, set in "station" parameter
+   * @param {object} station from ajaxGet, set in "station" parameter
    */
   addMarker(station) {
     let iconColor;

@@ -48,6 +48,7 @@ class Slider {
   }
   /**
    * Showing the slides
+   * Change the class name of the slide displayed
    */
   goToSlide(n) {
     this.items[this.currentSlide].className = "slide";

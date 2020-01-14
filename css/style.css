@@ -636,13 +636,19 @@ button:focus {
 }
 @media (max-width: 768px) {
   #slider {
-    height: 45vh;
+    height: 35vh;
   }
   .intro h1 {
     font-size: 40px;
   }
   .intro p {
     font-size: 22px;
+  }
+  #map {
+    height: 450px;
+  }
+  #map_col {
+    height: 450px;
   }
   #contact {
     padding: 1em 0;
@@ -660,7 +666,7 @@ button:focus {
     padding: 5px 8px;
   }
   #slider {
-    height: 35vh;
+    height: 24vh;
     padding: 0;
   }
   .container-slider {
@@ -677,6 +683,14 @@ button:focus {
     padding: 6px 16px;
     margin: 5px;
     border: 2px solid #b20000;
+  }
+  .arrow_left,
+  .arrow_right {
+    height: 15px;
+    width: 15px;
+  }
+  #play_button {
+    font-size: 0.8rem;
   }
   #map_col {
     height: 400px;

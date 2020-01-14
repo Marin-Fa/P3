@@ -58,9 +58,7 @@
       <nav id="header">
         <div class="container">
           <div id="logo" class="pull-left">
-            <a href="#slides" class="scrollto"
-              ><img src="img/logo.png" alt="Togo's logo"
-            /></a>
+            <a href="#slides"><img src="img/logo.png" alt="Togo's logo"/></a>
           </div>
 
           <div id="nav-menu-container">
@@ -73,6 +71,7 @@
         </div>
       </nav>
     </div>
+    <!-- Body -->
     <div class="container-fluid">
       <!-- Slider -->
       <div id="slider" class="container col-12">
@@ -80,7 +79,7 @@
           <div id="slides" class="text-center">
             <div class="slide showing">
               <section id="txt1" class="intro">
-                <div class="intro-container wow fadeIn">
+                <div class="intro-container">
                   <h1>Enjoy<br /><span>Lyon</span></h1>
                   <p>
                     ToGo is always with you, available on a 24/7 basis
@@ -97,7 +96,7 @@
             </div>
             <div class="slide">
               <section id="txt2" class="intro">
-                <div class="intro-container wow fadeIn">
+                <div class="intro-container">
                   <h1>Find your<br /><span>Station</span></h1>
                   <p>
                     and ToGo's available bikes, click on book now
@@ -114,7 +113,7 @@
             </div>
             <div class="slide">
               <section id="txt3" class="intro">
-                <div class="intro-container wow fadeIn">
+                <div class="intro-container">
                   <h1>Fill in<br /><span>the form</span></h1>
                   <p>
                     That's it ! Retrieve your bike within 20 minutes !
@@ -138,11 +137,7 @@
         <div class="col-2"></div>
         <div class="col-8">
           <div class="controls col-12 text-center">
-            <button
-              id="play_button"
-              name="singlebutton"
-              class="btn btn-primary about-btn"
-            >
+            <button id="play_button" class="btn btn-primary">
               Pause
             </button>
             <div class="arrows">
@@ -240,7 +235,6 @@
                     class="form-control"
                     id="name"
                     placeholder="Your Name"
-                    data-rule="minlen:4"
                     data-msg="Please enter at least 4 chars"
                   />
                   <div class="validation"></div>
@@ -265,7 +259,6 @@
                   name="subject"
                   id="subject"
                   placeholder="Subject"
-                  data-rule="minlen:4"
                   data-msg="Please enter at least 8 chars of subject"
                 />
                 <div class="validation"></div>
